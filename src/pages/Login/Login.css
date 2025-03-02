@@ -1,0 +1,128 @@
+.font-clr{
+    color: white;
+    
+}
+
+.login {
+    /* position: relative; */
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url('https://res.cloudinary.com/dni5usgip/image/upload/v1737210350/zpihmkmv2r73c82en0ch.png');
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color:blanchedalmond; */
+}
+.box{
+    width: 25%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+
+}
+/* .box .header{
+    color: bisque;
+} */
+.box h2{
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+.box .input1{
+    margin-bottom: 25px;
+}
+.box input{
+    width: 100%;
+    /* height: 100%; */
+    background-color: rgb(49, 47, 47);
+    border: none;
+    height: 40px;   
+    color: white;
+    font-size:16px ;
+    padding-left: 7px;
+    border-radius: 4px;
+}
+.box input[type="checkbox"]{
+    
+    /* height: auto; */
+    width: 13px;
+    margin-right: 4px;
+}
+.box button {
+    cursor: pointer;
+    margin-top: 35px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgb(233, 59, 16);
+    color: white;
+    border: none;
+ 
+}
+.box button .link{
+    text-decoration: none;
+    color: inherit;
+}
+.box .remember{
+    margin-top: 7px;
+    display: flex;
+    justify-content: space-between;
+}
+.box .remember .rem{
+    display: flex;
+}
+.box .remember p{
+    cursor: pointer;
+}
+.box .remember .rem p{
+    margin-top: 12px;
+    margin-left: 2px;
+    
+}
+.box .remember .help{
+    font-size: 14px;
+    margin-top: 15px;
+
+}
+.help1{
+    /* font-size: 14px; */
+
+}
+.box .sign-up{
+    color: rgb(156, 147, 147);
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box .sign-up span{
+    color: white;
+    cursor: pointer;
+}
+    
+.signUp{
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box1{
+    /* mar */
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.already{
+    font-size: 15px;
+}
+.sign-col{
+    font-size: 17px;
+    color: rgb(227, 205, 205);
+    color: black;
+}
