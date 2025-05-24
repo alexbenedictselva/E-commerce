@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../../Sales1.css";
 import { useNavigate } from "react-router-dom";
-import PopUp from "../../../../pop-up/popUp";
 // import PopUp from "../../pop-up/popUp";
 
 const AdSales = ({ name, brand, cost, img, id }) => {
@@ -47,7 +46,7 @@ const AdSales = ({ name, brand, cost, img, id }) => {
     window.location.reload();
   };
   return (
-    <div onClick={dispProduct}> 
+    <div onClick={dispProduct}>
       <div>
         <img src={img} alt="no img" />
         <div class="des">
@@ -62,13 +61,6 @@ const AdSales = ({ name, brand, cost, img, id }) => {
           </div>
           <h4>{cost}$</h4>
         </div>
-        {popUp && (
-          <PopUp
-            message={popUp}
-            key={`${popUp}-${errorTimestamp}`}
-            onClose={() => setPop("")}
-          />
-        )}
       </div>
     </div>
   );

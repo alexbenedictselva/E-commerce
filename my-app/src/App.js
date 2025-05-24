@@ -10,6 +10,7 @@ import PopUp from "./pages/pop-up/popUp";
 import Admin from "./pages/Home/Admin";
 import Main from "./pages/Home/components/Admin/Main";
 import AdProd from "./pages/Product-Display/Admin/AdProd";
+import UpdateProd from "./pages/Update/UpdateProd";
 
 function App() {
   return (
@@ -22,9 +23,9 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/product/:id" element={<Prouduct />} />
-        <Route path="admin/product/:id" element={<AdProd />} />
+        <Route path="/admin/product/:id" element={<AdProd />} />
+        <Route path="/admin/update/:id" element={<UpdateProd />} />
       </Routes>
-      {/* <PopUp message='hi'/> */}
     </BrowserRouter>
   );
 }

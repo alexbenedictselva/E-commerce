@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
-import "./AdProdContent.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-// import SalesBox from "../../Home/components/Sales-box";
-const AdProdContent = () => {
+import "./ProdContent.css";
+const ProdContents = () => {
   const [prod, setProd] = useState([]);
-  const [items, setItems] = useState("");
+  const [Acc, setAcc] = useState(Array(5).fill(true));
   const { id } = useParams();
-  const navigate = useNavigate();
   useEffect(() => {
     const getProdDetails = async () => {
       try {
-        // console.log("ID : ", id);
         const ProdDetails = await axios.get(
           `http://localhost:5000/api/getProd/${id}`
         );
@@ -22,60 +19,12 @@ const AdProdContent = () => {
     };
     getProdDetails();
   }, []);
-  useEffect(() => {
-    const containsTag = ["male", "female", "boy", "girl", "default"];
-    const tagItems = prod?.tags || [];
-    const item = tagItems.find((e) => {
-      return containsTag.includes(e);
+  const accessable = (ind) => {
+    setAcc((prev) => {
+      const val = [...prev];
+      val[ind] = !val[ind];
+      return val;
     });
-    // console.log("item : ", item);
-    setItems(item);
-  }, [prod]);
-
-//   useEffect(() => {
-//     const findRelatedProd = async () => {
-//       try {
-//         // console.log("item1 : ", items);
-//         const getProduct = await axios.get("http://localhost:5000/api/GetTag", {
-//           params: { tag: items },
-//         });
-//         setSimi(getProduct.data.message);
-//         // console.log("prod : ", getProduct);
-//       } catch (e) {
-//         console.log("Error in finding related products : ", e);
-//       }
-//     };
-//     findRelatedProd();
-//   }, [items]);
-    
-  const GiveToCart = async () => {
-    const token = localStorage.getItem("jwtToken");
-    try {
-      const giveToCart = await axios.post(
-        "http://localhost:5000/api/addToCart",
-        {
-          id,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      if (giveToCart.status === 200) {
-        alert("added to cart");
-      }
-    } catch (e) {
-      console.log("Error in adding to cart (Product page) : ", e);
-    }
-    };
-    const UpdateDetils = () => {
-        navigate(`/admin/update/${id}`);
-        window.location.reload();
-    }
-  const getProductSimi = (id1) => {
-      navigate(`/product/${id1}`);
-      window.location.reload();
   };
   return (
     <div id="MainProd">
@@ -83,41 +32,12 @@ const AdProdContent = () => {
         <div className="left-side">
           <div className="contentArea alice">
             <img className="mainImg" src={prod.image} alt="no img" />
-            <div className="buttons">
-              <button onClick={UpdateDetils}>
-                {" "}
-                <i className="fa-solid fa-psen"></i>&nbsp;&nbsp;Update Product
-              </button>
-              <button className="del">
-                {" "}
-                <i class="fa-solid fa-erase " aria-hidden="true"></i>
-                &nbsp;&nbsp; Delete Product 
-              </button>
-            </div>
-            <hr className="line" />
-            <div>
-              {/* <div className="simi-tag">
-                <p> 4 similar product</p>
-                <div className="similarProd">
-                  {similarProd.length > 0 &&
-                    similarProd
-                      .slice(-4)
-                      .map((e) => (
-                        <img
-                          onClick={() => getProductSimi(e._id)}
-                          src={e.image}
-                          alt=""
-                          className="img"
-                        />
-                      ))}
-                </div>
-              </div> */}
-            </div>
+            <div></div>
           </div>
         </div>
         <div className="right-side">
           <div className="content">
-            <div className="top">
+            {/* <div className="top">
               <p className="name">{prod.product}</p>
               <p className="amt">
                 <span className="fare">{prod.price}$</span> onwards
@@ -220,10 +140,93 @@ const AdProdContent = () => {
                 <p className="sizess">
                   XXL (Chest Size : 44 in, Length Size: 30 in)
                 </p>
-                {/* <p className="">Sizes :  </p> */}
+                <p className="">Sizes :  </p>
               </div>
             </div>
-            <div className="rating"></div>
+            <div className="rating"></div> */}
+            <div className="detailsBox">
+              <div className="textBox">
+                <p style={{ paddingRight: "54px" }}>Name : </p>
+                <div className="cen">
+                  <div class="input-wrapper">
+                    <input
+                      type="text"
+                      disabled={Acc[0]}
+                      style={
+                        Acc[0] ? { backgroundColor: "rgb(245, 241, 241)" } : {}
+                      }
+                      value={prod.product}
+                    />
+                    <i class="fas fa-pen" onClick={() => accessable(0)}></i>{" "}
+                  </div>
+                </div>
+              </div>
+              <div className="textBox">
+                <p style={{ paddingRight: "20px" }}>Category : </p>
+                <div className="cen">
+                  <div class="input-wrapper">
+                    <input
+                      type="text"
+                      disabled={Acc[1]}
+                      style={
+                        Acc[1] ? { backgroundColor: "rgb(245, 241, 241)" } : {}
+                      }
+                      value={prod.category}
+                    />
+                    <i class="fas fa-pen" onClick={() => accessable(1)}></i>{" "}
+                  </div>
+                </div>
+              </div>
+              <div className="textBox">
+                <p style={{ paddingRight: "63px" }}>Price : </p>
+                <div className="cen">
+                  <div class="input-wrapper">
+                    <input
+                      type="text"
+                      disabled={Acc[2]}
+                      style={
+                        Acc[2] ? { backgroundColor: "rgb(245, 241, 241)" } : {}
+                      }
+                      value={prod.price}
+                    />
+                    <i class="fas fa-pen" onClick={() => accessable(2)}></i>{" "}
+                  </div>
+                </div>
+              </div>
+              <div className="textBox">
+                <p style={{ paddingRight: "58px" }}>Stock : </p>
+                <div className="cen">
+                  <div class="input-wrapper">
+                    <input
+                      type="text"
+                      disabled={!Acc[3]}
+                      style={
+                        Acc[3] ? { backgroundColor: "rgb(245, 241, 241)" } : {}
+                      }
+                      value={prod.stock}
+                      
+                    />
+                    <i class="fas fa-pen" onClick={() => accessable(3)}></i>{" "}
+                  </div>
+                </div>
+              </div>
+              <div className="textBox">
+                <p style={{ paddingRight: "64px" }}>Tags : </p>
+                <div className="cen">
+                  <div class="input-wrapper">
+                    <input
+                      type="text"
+                      disabled={Acc[4]}
+                      style={
+                        Acc[4] ? { backgroundColor: "rgb(245, 241, 241)" } : {}
+                      }
+                      value={prod.tags}
+                    />
+                    <i class="fas fa-pen" onClick={() => accessable(4)}></i>{" "}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -253,4 +256,4 @@ const AdProdContent = () => {
   );
 };
 
-export default AdProdContent;
+export default ProdContents;
