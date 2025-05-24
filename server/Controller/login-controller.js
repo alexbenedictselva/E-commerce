@@ -49,14 +49,14 @@ const UserLogin = async (req, res) => {
     const { email, password } = req.body;
     const Findemail = await userSchema.findOne({ email: email });
     if (!Findemail) {
-      return res.json({
+      return res.status(404).json({
         success: false,
         message: `There is no email registered with ${email}`,
       });
     }
     const isPassMatches = await bcrypt.compare(password, Findemail.password);
     if (!isPassMatches) {
-      return res.json({
+      return res.status(404).json({
         success: false,
         message: `Password dosen't matches for the email ${email}`,
       });
@@ -72,11 +72,12 @@ const UserLogin = async (req, res) => {
       "alexbenedictselva",
       { expiresIn: "60m" }
     );
-
+    console.log(accesstoken);
     res.send({
       success: true,
       message: "Password matches user... logged in ",
       token: accesstoken,
+      role: Findemail.role
     });
     console.log("token", accesstoken);
   } catch (e) {

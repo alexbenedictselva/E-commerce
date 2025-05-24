@@ -32,9 +32,6 @@ router.post("/addProd", AdminVerification,);
 // router.get('/cart', DisplayCart);
 
 router.post("/insertMany", getFromToken, AdminVerification, inserManyImages);
-// router.get('GetForSalesOne', GetImgSales1);
-
-// router.post("/addToCart", AddToCart);
 router.get('/cart',getFromToken, DisplayCart);
 router.post('/alter',getFromToken, ChangeQuanitity);
 router.post("/addToCart", getFromToken, AddToCart);
