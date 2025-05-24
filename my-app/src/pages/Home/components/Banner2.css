@@ -1,0 +1,63 @@
+#sm-banner {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 70px;
+}
+#sm-banner .banner-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: start;
+  /* background-image: url(img.png/b17.jpg); */
+  background-image: url("../../image/b17.jpg");
+  min-width: 530px;
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  padding-left: 15px;
+}
+
+#sm-banner h4 {
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+#sm-banner h2 {
+  color: white;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+#sm-banner span {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  padding-bottom: 15px;
+}
+#sm-banner .banner-box1 {
+  padding-left: 30px;
+  /* background-image: url(img.png/b10.jpg); */
+  background-image: url("../../image/b10.jpg");
+}
+
+button.white {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 11px 18px;
+  color: white;
+  background-color: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid;
+  transition: 0.2s ease;
+}
+button.white:hover {
+  background-color: #088178;
+  color: white;
+  transition: 0.3s ease;
+}

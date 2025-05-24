@@ -1,0 +1,52 @@
+#salesPage .contents{
+    display: flex;
+    width: 100%;
+    /* background-color: aqua; */
+    margin-top: 20px;
+}
+#salesPage .contents .filters{
+    background-color: aliceblue;
+    width: 25%;
+}
+#salesPage .contents .items{
+    width: 75%;
+    /* background-color: rebeccapurple; */
+    /* margin-right: 5px;
+    margin-left: 5px; */
+}
+#salesPage .contents .filters .sortBy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    margin: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: 1px solid rgb(172, 213, 251);
+    background-color: white;
+    padding: 10px;
+    
+    border-radius: 5px;
+}
+#salesPage .contents .filters .sortBy .options{
+    border: none;
+    padding: 9px;
+}
+#salesPage h3{
+    margin-left: 20px;
+}
+#salesPage .pro{
+    min-width: 200px;
+}
+#salesPage .pro-container .cart1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#salesPage .pro-container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-top: 0;
+}

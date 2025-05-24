@@ -1,0 +1,50 @@
+#banner3
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 80px;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 70px;
+}
+#banner3 .banner-box
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-image: url('../../image/men-banner.jpg');
+    height: 30vh;
+    min-width:30%;
+    background-size: cover;
+    background-position:center ;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+}
+#banner3 h2{
+    color: white;
+    font-size: 22px;
+    font-weight: 900;
+
+}
+
+#banner3 h4{
+    color: white;
+    font-size: 15px;
+    font-weight: 800;
+
+}
+
+#banner3 .banner-box:nth-child(2)
+{
+    background-image: url("../../image/men.model11cpy.jpg");
+}
+
+#banner3 .banner-box:nth-child(2) h2{
+    color: white;
+}
+
+#banner3 .banner-box:nth-child(3){
+    background-image: url('../../image/b4.jpg');
+}

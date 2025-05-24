@@ -1,0 +1,32 @@
+.hero {
+    background-image: url('../../image/men\ modell.png');
+    height: 90vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: top 50px right 100px;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 100px;
+}
+
+.s1 {
+    margin-bottom: 10px;
+}
+
+.s3 {
+    color: #088178;
+}
+
+.s4 {
+    margin-left: 3px;
+}
+
+.but {
+    background-color: transparent;
+    border: 0;
+    color: #088178;
+    font-weight: 800;
+}

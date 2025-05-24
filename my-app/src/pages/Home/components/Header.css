@@ -1,0 +1,128 @@
+/* @import url('https://fonts.googleapis.com/css?family=Spartan:wght@100;200;300;400;500; 600;700;800;900&display=swap'); */
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 80px;
+    background-color: #E3E6F3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 15%;
+    right: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-right: 0px;
+}
+#header img{
+    /* background-color: #222; */
+    cursor: pointer;
+    width: 4%;
+    
+}
+
+#navbar li {
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li {
+    
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    
+}
+#navbar .link{
+    text-decoration:  none;
+}
+
+
+/* #navbar li a.active::after,
+#navbar li a:hover::after {
+    content: "";
+    width: 30%;
+    height: 2px;
+    background-color: #088178;
+    position: absolute;
+    bottom: -3px;
+    left: 20px;
+} */
+
+#header #mobile {
+    display: none;
+}
+#header .navAdmin{
+    gap: 10px;
+}
+/* @media (max-width:799px) {
+    #navbar {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100vh;
+        width: 300px;
+        background-color: #E3E6F3;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 80px 0px 0px 10px;
+        transition: 0.3s;
+    }
+
+    #navbar .active {
+        right: 0px;
+    }
+
+    #navbar #close {
+        display: initial;
+        color: #222;
+    }
+
+    #navbar li {
+        margin-bottom: 25px;
+    }
+
+    #header #mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-top: 15px;
+        font-size: 25px;
+    }
+
+    #header #mobile i {
+        padding-right: 34px;
+        padding-bottom: 10px;
+        color: black;
+    }
+
+    #header #mobile a {
+        color: black;
+    }
+
+    #header {
+        padding: 15px 30px;
+    }
+
+    #navbar li {
+        padding: 0 15px;
+    }
+
+    #header .logo {
+        margin-left: 20px;
+        margin-top: 18px;
+    }
+} */

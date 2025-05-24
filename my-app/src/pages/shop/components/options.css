@@ -1,0 +1,46 @@
+#opt .opt-name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 9px;
+    margin: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 91%;
+    border: 1px solid rgb(172, 213, 251);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+
+#opt .filter-section {
+    font-family: Arial, sans-serif;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  #opt .filter-header {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  #opt .filter-content {
+    margin-top: 10px;
+    margin-left: 31px;
+  }
+  
+  #opt  .checkbox-list {
+    list-style: none;
+  }
+  
+  #opt  .checkbox-list li {
+    margin-bottom: 5px;
+    padding: 8px;
+    font-size: 15px;
+  }
+  

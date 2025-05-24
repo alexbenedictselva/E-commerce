@@ -1,0 +1,11 @@
+/* index.css */
+@import url('https://fonts.googleapis.com/css?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+body::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar for WebKit browsers */
+}
+
+body {
+  font-family: 'Spartan', sans-serif;
+}
