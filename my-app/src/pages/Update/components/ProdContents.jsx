@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import PopUp from "../../pop-up/popUp";
@@ -6,10 +6,27 @@ import "./ProdContent.css";
 const ProdContents = () => {
   const [prod, setProd] = useState([]);
   const [Acc, setAcc] = useState(Array(5).fill(true));
+  const [previewImage, setPreviewImage] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
   const [popUp, setPop] = useState("");
 
+  const fileInputRef = useRef(null);
+
+  const handleIconClick = () => {
+    fileInputRef.current.click(); // Programmatically click the hidden input
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreviewImage(reader.result); // Store base64 string as preview
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   useEffect(() => {
     const getProdDetails = async () => {
       try {
@@ -52,15 +69,27 @@ const ProdContents = () => {
       console.log("Error at giving updated info of product :", e);
     }
   };
-
+  const ChangePhoto = () => {};
   return (
     <div id="MainProd">
       <div id="AProdContent">
         <div className="left-side">
           <div className="contentArea alice">
-            <img className="mainImg" src={prod.image} alt="no img" />
+            <img
+              className="mainImg"
+              src={previewImage || prod.image}
+              alt="no img"
+            />
+            <i class="icon fas fa-pen" onClick={handleIconClick}></i>{" "}
             <div></div>
           </div>
+          <input
+            type="file"
+            accept="image/*"
+            ref={fileInputRef}
+            onChange={handleFileChange}
+            style={{ display: "none" }}
+          />
         </div>
 
         <div className="right-side">

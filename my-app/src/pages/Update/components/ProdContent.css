@@ -316,3 +316,17 @@ h1{
 .button .del{
     background-color: rgb(188, 97, 97);
 }
+#AProdContent .contentArea{
+    position: relative;
+
+}
+#AProdContent .contentArea .icon{
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    border: 1px solid black;
+    color: rgb(56, 54, 54);
+    padding: 3px;
+    border-radius: 4px;
+    cursor: pointer;
+}
