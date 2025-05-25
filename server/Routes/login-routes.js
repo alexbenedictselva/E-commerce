@@ -31,7 +31,7 @@ router.get(
 router.post("/addProd", AdminVerification,);
 // router.get('/cart', DisplayCart);
 
-router.post("/insertMany", getFromToken, AdminVerification, inserManyImages);
+router.post("/insertMany", inserManyImages);
 router.get('/GetForSalesOne', GetImgSales1);
 router.get('/GetForSalesTwo', GetImgSales2);
 

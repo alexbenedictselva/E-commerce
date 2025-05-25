@@ -29,14 +29,12 @@ const ProdContent = () => {
     const item = tagItems.find((e) => {
       return containsTag.includes(e);
     });
-    // console.log("item : ", item);
     setItems(item);
   }, [prod]);
 
   useEffect(() => {
     const findRelatedProd = async () => {
       try {
-        // console.log("item1 : ", items);
         const getProduct = await axios.get("http://localhost:5000/api/GetTag", {
           params: { tag: items },
         });

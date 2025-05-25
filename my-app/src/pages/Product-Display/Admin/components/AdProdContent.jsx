@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./AdProdContent.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-// import SalesBox from "../../Home/components/Sales-box";
+import DeletePop_up from "../../../pop-up/DeletePop_up";
 const AdProdContent = () => {
   const [prod, setProd] = useState([]);
   const [items, setItems] = useState("");
   const { id } = useParams();
+  const [del, SetDel] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
     const getProdDetails = async () => {
@@ -28,26 +29,12 @@ const AdProdContent = () => {
     const item = tagItems.find((e) => {
       return containsTag.includes(e);
     });
-    // console.log("item : ", item);
     setItems(item);
   }, [prod]);
+  const confirmDel = () => {
+    SetDel(!del);
+  };
 
-//   useEffect(() => {
-//     const findRelatedProd = async () => {
-//       try {
-//         // console.log("item1 : ", items);
-//         const getProduct = await axios.get("http://localhost:5000/api/GetTag", {
-//           params: { tag: items },
-//         });
-//         setSimi(getProduct.data.message);
-//         // console.log("prod : ", getProduct);
-//       } catch (e) {
-//         console.log("Error in finding related products : ", e);
-//       }
-//     };
-//     findRelatedProd();
-//   }, [items]);
-    
   const GiveToCart = async () => {
     const token = localStorage.getItem("jwtToken");
     try {
@@ -68,14 +55,14 @@ const AdProdContent = () => {
     } catch (e) {
       console.log("Error in adding to cart (Product page) : ", e);
     }
-    };
-    const UpdateDetils = () => {
-        navigate(`/admin/update/${id}`);
-        window.location.reload();
-    }
+  };
+  const UpdateDetils = () => {
+    navigate(`/admin/update/${id}`);
+    window.location.reload();
+  };
   const getProductSimi = (id1) => {
-      navigate(`/product/${id1}`);
-      window.location.reload();
+    navigate(`/product/${id1}`);
+    window.location.reload();
   };
   return (
     <div id="MainProd">
@@ -88,33 +75,22 @@ const AdProdContent = () => {
                 {" "}
                 <i className="fa-solid fa-psen"></i>&nbsp;&nbsp;Update Product
               </button>
-              <button className="del">
+              <button className="del" onClick={confirmDel}>
                 {" "}
                 <i class="fa-solid fa-erase " aria-hidden="true"></i>
-                &nbsp;&nbsp; Delete Product 
+                &nbsp;&nbsp; Delete Product
               </button>
             </div>
             <hr className="line" />
-            <div>
-              {/* <div className="simi-tag">
-                <p> 4 similar product</p>
-                <div className="similarProd">
-                  {similarProd.length > 0 &&
-                    similarProd
-                      .slice(-4)
-                      .map((e) => (
-                        <img
-                          onClick={() => getProductSimi(e._id)}
-                          src={e.image}
-                          alt=""
-                          className="img"
-                        />
-                      ))}
-                </div>
-              </div> */}
-            </div>
           </div>
         </div>
+            {del && (
+              <div className="popup-overlay">
+                <div className="popup-box">
+                          <DeletePop_up product={prod.product} SetDel={SetDel} del={del} />
+                </div>
+              </div>
+            )}
         <div className="right-side">
           <div className="content">
             <div className="top">
