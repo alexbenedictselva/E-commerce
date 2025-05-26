@@ -289,6 +289,9 @@ const getAllProducts = async (req, res) => {
 const GetTheProduct = async (req, res) => {
   try {
     const { id } = req.params;
+    if (!id || !mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ error: 'Invalid or missing product ID' });
+    }
     const getProdDetails = await ProdSchema.findById(id);
     if (!getProdDetails) {
       return res.status(400).json({

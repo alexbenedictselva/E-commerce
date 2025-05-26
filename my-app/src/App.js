@@ -11,6 +11,7 @@ import Admin from "./pages/Home/Admin";
 import Main from "./pages/Home/components/Admin/Main";
 import AdProd from "./pages/Product-Display/Admin/AdProd";
 import UpdateProd from "./pages/Update/UpdateProd";
+import AddProd from "./pages/AddProduct/AddProd";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/product/:id" element={<Prouduct />} />
         <Route path="/admin/product/:id" element={<AdProd />} />
         <Route path="/admin/update/:id" element={<UpdateProd />} />
+        <Route path="/admin/addProduct" element={<AddProd />} />
       </Routes>
     </BrowserRouter>
   );

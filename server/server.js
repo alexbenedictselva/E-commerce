@@ -16,7 +16,7 @@ mongoose
 app.use(express.json());
 app.use(cors());
 app.use("/api", regis_router);
-app.use("/api", img_router);
+app.use("/api/admin", img_router);
 app.use("/api/admin", Adm_router);
 
 const port = "5000";

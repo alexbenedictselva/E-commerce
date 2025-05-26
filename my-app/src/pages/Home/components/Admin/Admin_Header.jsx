@@ -17,7 +17,7 @@ const Admin_Header = () => {
         <div >
             <ul id="navbar" className="navAdmin">
                 <Link to='/admin' className='link'><li>Home</li></Link>
-                <Link to='/cart' className='link'><li>Add Products</li></Link>
+                <Link to='/admin/addProduct' className='link'><li>Add Products</li></Link>
                 <Link to='/shop' className='link'><li>Update Products</li></Link>
                 <Link to='/' className='link'><li>Delete Products</li></Link>
             </ul>

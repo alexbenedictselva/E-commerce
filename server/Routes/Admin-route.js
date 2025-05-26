@@ -4,6 +4,6 @@ const { UpdateProduct,DeleteProd, insertImages } = require('../Controller/admin-
 
 router.post("/updateProd/:id", UpdateProduct);
 router.delete("/deleteProd/:id", DeleteProd);
-router.post("/UploadProd/:id", insertImages);
+router.post("/UploadProd", insertImages);
 
 module.exports = router;
