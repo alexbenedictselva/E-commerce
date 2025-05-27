@@ -5,9 +5,9 @@ import ShopContent from "./ShopContent";
 import Options from "./components/options";
 const Shop = () => {
   return (
-    <div>
+    <div className="Shop">
       <Header />
-      <div style={{ paddingTop: "130px" }}>
+      <div  className="shopContent" style={{ paddingTop: "130px" }}>
         <ShopContent />
       </div>
     </div>

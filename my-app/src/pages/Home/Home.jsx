@@ -18,6 +18,7 @@ const Home = () => {
     if (!token) {
       navigate('/login');
     }
+    console.log(token);
   },[])
   return (
     <div>

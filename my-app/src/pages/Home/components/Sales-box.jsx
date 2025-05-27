@@ -46,8 +46,8 @@ const SalesBox = ({ name, brand, cost, img, id }) => {
     window.location.reload();
   };
   return (
-    <div onClick={dispProduct}>
-      <div>
+    <div onClick={dispProduct} id="sales-box">
+      <div className="pro1">
         <img src={img} alt="no img" />
         <div class="des">
           <span>{brand}</span>

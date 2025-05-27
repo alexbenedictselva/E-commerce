@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./options.css";
 const Options = ({ filter }) => {
-  const [Show, setShow] = useState(false);
+  const [Show, setShow] = useState(new Array(5).fill(false));
   // const [showProd, setProd] = useState([]);
   const [checkList, setCheck] = useState([]);
   const sizes = [
@@ -20,6 +20,19 @@ const Options = ({ filter }) => {
     "28",
     "28A",
   ];
+  const gender = ["Boy", "Girl", "Male", "Female"];
+  const price = [
+    "Under 149",
+    "Under 199",
+    "Under 249",
+    "Under 299",
+    "Under 349",
+    "Under 399",
+    "Under 499",
+    "Under 999",
+  ];
+  const color = ["Red", "Blue", "Green", "Yellow", "Black", "White"];
+
   const ItemGotClicked = (item) => {
     setCheck((e) => {
       if (e.includes(item)) {
@@ -31,40 +44,169 @@ const Options = ({ filter }) => {
   };
   useEffect(() => {
     if (filter) {
-      filter(checkList); 
+      filter(checkList);
     }
-  }, [checkList,filter]);
+  }, [checkList, filter]);
 
   return (
     <div id="opt" className="Options filter-section">
-      <div className="opt-name">
-        <span>Size</span>
-        <span className="filter-header" onClick={() => setShow(!Show)}>
-          {Show === true ? (
-            <i class="fa fa-arrow-up" aria-hidden="true"></i>
-          ) : (
-            <i class="fa fa-arrow-down" aria-hidden="true"></i>
-          )}
-        </span>
-      </div>
-      {Show === true && (
-        <div className="filter-content">
-          <ul className="checkbox-list">
-            {sizes.map((size, index) => (
-              <li key={index}>
-                <label>
-                  <input
-                    type="checkbox"
-                    value={size}
-                    onClick={() => ItemGotClicked(size)}
-                  />{" "}
-                  &nbsp;&nbsp;{size}
-                </label>
-              </li>
-            ))}
-          </ul>
+      <div>
+        <div className="opt-name">
+          <span>Size</span>
+          <span
+            className="filter-header"
+            onClick={() => {
+              setShow((prev) => {
+                const updated = [...prev];
+                updated[0] = !updated[0];
+                return updated;
+              });
+            }}
+          >
+            {Show[0] === true ? (
+              <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            ) : (
+              <i class="fa fa-arrow-down" aria-hidden="true"></i>
+            )}
+          </span>
         </div>
-      )}
+        {Show[0] === true && (
+          <div className="filter-content">
+            <ul className="checkbox-list">
+              {sizes.map((size, index) => (
+                <li key={index}>
+                  <label>
+                    <input
+                      type="checkbox"
+                      value={size}
+                      checked={checkList.includes(size)}
+                      onClick={() => ItemGotClicked(size)}
+                    />{" "}
+                    &nbsp;&nbsp;{size}
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+      <div>
+        <div className="opt-name">
+          <span>Gender</span>
+          <span
+            className="filter-header"
+            onClick={() => {
+              setShow((prev) => {
+                const updated = [...prev];
+                updated[1] = !updated[1];
+                return updated;
+              });
+            }}
+          >
+            {Show[1] === true ? (
+              <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            ) : (
+              <i class="fa fa-arrow-down" aria-hidden="true"></i>
+            )}
+          </span>
+        </div>
+        {Show[1] === true && (
+          <div className="filter-content">
+            <ul className="checkbox-list">
+              {gender.map((size, index) => (
+                <li key={index}>
+                  <label>
+                    <input
+                      type="checkbox"
+                      value={size}
+                      onClick={() => ItemGotClicked(size)}
+                    />{" "}
+                    &nbsp;&nbsp;{size}
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+      <div>
+        <div className="opt-name">
+          <span>Price</span>
+          <span
+            className="filter-header"
+            onClick={() => {
+              setShow((prev) => {
+                const updated = [...prev];
+                updated[2] = !updated[2];
+                return updated;
+              });
+            }}
+          >
+            {Show[2] === true ? (
+              <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            ) : (
+              <i class="fa fa-arrow-down" aria-hidden="true"></i>
+            )}
+          </span>
+        </div>
+        {Show[2] === true && (
+          <div className="filter-content">
+            <ul className="checkbox-list">
+              {price.map((size, index) => (
+                <li key={index}>
+                  <label>
+                    <input
+                      type="checkbox"
+                      value={size}
+                      onClick={() => ItemGotClicked(size)}
+                    />{" "}
+                    &nbsp;&nbsp;{size}
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+      <div>
+        <div className="opt-name">
+          <span>Color</span>
+          <span
+            className="filter-header"
+            onClick={() => {
+              setShow((prev) => {
+                const updated = [...prev];
+                updated[3] = !updated[3];
+                return updated;
+              });
+            }}
+          >
+            {Show[3] === true ? (
+              <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            ) : (
+              <i class="fa fa-arrow-down" aria-hidden="true"></i>
+            )}
+          </span>
+        </div>
+        {Show[3] === true && (
+          <div className="filter-content">
+            <ul className="checkbox-list">
+              {color.map((size, index) => (
+                <li key={index}>
+                  <label>
+                    <input
+                      type="checkbox"
+                      value={size}
+                      onClick={() => ItemGotClicked(size)}
+                    />{" "}
+                    &nbsp;&nbsp;{size}
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
