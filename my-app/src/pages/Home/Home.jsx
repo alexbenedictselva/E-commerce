@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from './components/Header1'
 import Hero from './components/Hero'
 import Features from './components/Features'
@@ -9,8 +9,16 @@ import Banner2 from './components/Banner2'
 import Banner3 from './components/Banner3'
 import SearchDown from './components/Search_down'
 import Fotter from './components/Fotter'
+import {  useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate('/login');
+    }
+  },[])
   return (
     <div>
       <Header />

@@ -12,6 +12,7 @@ import Main from "./pages/Home/components/Admin/Main";
 import AdProd from "./pages/Product-Display/Admin/AdProd";
 import UpdateProd from "./pages/Update/UpdateProd";
 import AddProd from "./pages/AddProduct/AddProd";
+import AccessDenied from "./pages/ErrorPages/AccessDenied";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/admin/product/:id" element={<AdProd />} />
         <Route path="/admin/update/:id" element={<UpdateProd />} />
         <Route path="/admin/addProduct" element={<AddProd />} />
+        <Route path="/NotAccessible" element={<AccessDenied />} />
       </Routes>
     </BrowserRouter>
   );

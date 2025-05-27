@@ -44,8 +44,8 @@ const Login = () => {
       if (passToBackEnd.status === 200) {
         const tokenId = passToBackEnd.data.token;
         const role = passToBackEnd.data.role;
-        // console.log(tokenId);
-        localStorage.setItem("jwtToken", tokenId);
+        localStorage.setItem("token", tokenId);
+        localStorage.setItem("role", role);
         
         if (role === "admin") {
           navigate("/admin");

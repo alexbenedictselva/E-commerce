@@ -5,9 +5,9 @@ import PopUp from "../../pop-up/popUp";
 import "./ProdPage.css";
 const ProdPage = () => {
   const [prod, setProd] = useState([]);
-  const [Acc, setAcc] = useState(Array(5).fill(true));
+  //   const [Acc, setAcc] = useState(Array(5).fill(true));
   const [previewImage, setPreviewImage] = useState(null);
-  const { id } = useParams();
+  //   const { id } = useParams();
   const navigate = useNavigate();
   const [popUp, setPop] = useState("");
   const [file, setFile] = useState();
@@ -50,33 +50,33 @@ const ProdPage = () => {
       reader.readAsDataURL(file1);
     }
   };
-//   useEffect(() => {
-//     const getProdDetails = async () => {
-//       try {
-//         const ProdDetails = await axios.get(
-//           `http://localhost:5000/api/getProd/${id}`
-//         );
-//         setProd(ProdDetails.data.message);
-//       } catch (e) {
-//         console.log("Error in displaying product details : ", e);
-//       }
-//     };
-//     getProdDetails();
-//   }, []);
+  //   useEffect(() => {
+  //     const getProdDetails = async () => {
+  //       try {
+  //         const ProdDetails = await axios.get(
+  //           `http://localhost:5000/api/getProd/${id}`
+  //         );
+  //         setProd(ProdDetails.data.message);
+  //       } catch (e) {
+  //         console.log("Error in displaying product details : ", e);
+  //       }
+  //     };
+  //     getProdDetails();
+  //   }, []);
   useEffect(() => {
     console.log(prod);
   }, [prod]);
-  const accessable = (ind) => {
-    setAcc((prev) => {
-      const val = [...prev];
-      val[ind] = !val[ind];
-      return val;
-    });
-  };
+  //   const accessable = (ind) => {
+  //     setAcc((prev) => {
+  //       const val = [...prev];
+  //       val[ind] = !val[ind];
+  //       return val;
+  //     });
+  //   };
   const giveToBackEnd = async () => {
-      try {
-          setLoading(true);
-          let GetImage = await ChangeImage();
+    try {
+      setLoading(true);
+      let GetImage = await ChangeImage();
 
       const data = {
         product: prod.product,
@@ -85,8 +85,8 @@ const ProdPage = () => {
         price: prod.price,
         stock: prod.stock,
         tags: prod.tags,
-          };
-          console.log(data);
+      };
+      console.log(data);
 
       const DetailsPass = await axios.post(
         `http://localhost:5000/api/admin/UploadProd`,
@@ -99,7 +99,7 @@ const ProdPage = () => {
           tags: prod.tags,
         }
       );
-          const id = DetailsPass.data.product._id;
+      const id = DetailsPass.data.product._id;
       if (DetailsPass) {
         setPop("Added successfully.");
         navigate(`/admin/product/${id}`);
