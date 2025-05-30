@@ -1,13 +1,12 @@
-import React, { useState,useEffect } from "react";
-import "./shop.css";
-import Header from "../Home/components/Header1";
-import ShopContent from "./ShopContent";
-import Options from "./components/options";
-import { useNavigate } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
-const Shop = () => {
-  const navigate = useNavigate();
-  useEffect(() => {
+import React, { useEffect } from 'react'
+import './CheckOut.css';
+import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
+import ProductElements from './components/ProductElements';
+import Address from './components/Address';
+const CheckOut = () => {
+    const navigate = useNavigate();
+    useEffect(() => {
     const token = localStorage.getItem("token");
     const role = localStorage.getItem("role");
     if (!token) {
@@ -30,20 +29,16 @@ const Shop = () => {
         navigate("/login");
       }
     }
-    // console.log(role);
     if (role === "admin") {
       navigate("/login");
     }
-    // console.log(token);
   },[])
   return (
-    <div className="Shop">
-      <Header />
-      <div  className="shopContent" style={{ paddingTop: "130px" }}>
-        <ShopContent />
-      </div>
+      <div id='CheckOut'>
+          <ProductElements />
+          {/* <Address /> */}
     </div>
-  );
-};
+  )
+}
 
-export default Shop;
+export default CheckOut

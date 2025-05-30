@@ -7,39 +7,27 @@ import {jwtDecode} from "jwt-decode";
 
 const Main = () => {
     const navigate = useNavigate();
-    // useEffect(() => {
-    //     const token = localStorage.getItem("token");
-    //     const role = localStorage.getItem("role");
-    //     if (!token) {
-    //         navigate('/login');
-    //     }
-    //     if (role !== "admin") {
-    //         navigate('/NotAccessible');
-    //     }
-  // },[])
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      navigate('/login');
-    } else {
-      try {
-        const decode = jwtDecode(token);
-        const currTime = Date.now() / 1000;
-        console.log(decode.exp /1000);
-        if (decode.exp < currTime) {
-          localStorage.removeItem("token");
-          navigate("login");
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        const role = localStorage.getItem("role");
+        if (!token) {
+            navigate('/login');
         } else {
-          console.log("Valid Token :",token);
+          try {
+            const decode = jwtDecode(token);
+            const CurrTime = Date.now() / 1000; 
+            if (decode.exp < CurrTime) {
+              navigate("/login");
+            } else {
+              console.log("Valid Token:",token);
+            }
+          } catch (e) {
+            console.log("Error in Main.jsx :",e);
+          }
         }
-        console.log(decode);
-      } catch (e) {
-        console.log("Error in decoding token in home page : ", e);
-        localStorage.removeItem("token");
-        navigate("/login");
-      }
-    }
-    // console.log(token);
+        if (role !== "admin") {
+            navigate('/NotAccessible');
+        }
   },[])
   return (
     <div>

@@ -1,0 +1,131 @@
+#address{
+    height: 100%;
+    /* background-color: black; */
+    border: 1px solid black;
+    width: 33%;
+    height: 100vh;
+    /* padding-left: 6px; */
+    /* background-color: rgb(211, 232, 251); */
+    background-color: white;
+}
+#address p{
+    margin: 0;
+}
+#address .contact{
+    display: flex;
+    flex-direction: column;
+    /* background-color: black; */
+}
+#addres .Address{
+    display: flex;
+    flex-direction: column;
+}
+#address .heading{
+    margin-top: 20px;
+    padding-top: 20px;
+    /* background-color: black; */
+    padding: 10px 0px 10px 0px;
+    /* margin-bottom: 10px; */
+}
+#address .subhead{
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+#address .ele{
+    position: relative;
+    margin-bottom: 30px;
+    margin-left: 10px;
+
+}
+#address .lst{
+    margin-bottom: 10px;
+}
+
+#address .ele p{
+    position: absolute;
+    font-size: 11px;
+    /* top: -; */
+    bottom: 28px;
+    left: 4px;
+}
+#address .contact h3{
+    margin-left: 5px;
+}
+#address .Address h3{
+    margin-left: 5px;
+}
+#address .top{
+    display: flex;
+    margin-bottom: 2px ;
+    /* margin-left: 20px; */
+    /* padding-left: 20px; */
+}
+#address .top i{
+    margin-left: 5px;
+    margin-top: 13px;
+    font-size: 17px;
+    cursor: pointer;
+}
+#address .top h3{
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+#address .ele input{
+    border: none;
+    height: 30px;
+    border-bottom:1px solid black ;
+    font-size: 14px;
+    width: 240px;
+    width: 95%;
+}
+#address .sub input{
+    width: 150px;
+    
+}
+#address .subdiv{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+    /* background-color: black; */
+}
+#address input:focus{
+    /* border: none; */
+    outline: none;
+  border-bottom: 2px solid black; /* underline only */
+  border-radius: 0;
+}
+#address .lst1 p{
+    bottom: 45px;
+}
+
+
+#address input::-webkit-outer-spin-button,
+#address input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#address input[type="number"] {
+  -moz-appearance: textfield;
+}
+#address .center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#address .center button{
+    padding: 7px;
+    background-color: aliceblue;
+    border: 1px solid rgb(197, 222, 243);
+    cursor: pointer;
+    border-radius: 5px;
+}
+#address .subdiv{
+    height: 50px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+#address .lst1{
+    margin-bottom: 0;
+}

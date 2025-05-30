@@ -13,18 +13,21 @@ import AdProd from "./pages/Product-Display/Admin/AdProd";
 import UpdateProd from "./pages/Update/UpdateProd";
 import AddProd from "./pages/AddProduct/AddProd";
 import AccessDenied from "./pages/ErrorPages/AccessDenied";
+import CheckOut from "./pages/CheckOut/CheckOut";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/admin" element={<Main />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/product/:id" element={<Prouduct />} />
+        <Route path="/checkout/:id" element={<CheckOut />} />
+
+        <Route path="/admin" element={<Main />} />
         <Route path="/admin/product/:id" element={<AdProd />} />
         <Route path="/admin/update/:id" element={<UpdateProd />} />
         <Route path="/admin/addProduct" element={<AddProd />} />

@@ -16,6 +16,7 @@ const Home = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const token = localStorage.getItem("token");
+    const role = localStorage.getItem("role");
     if (!token) {
       navigate('/login');
     } else {
@@ -35,6 +36,10 @@ const Home = () => {
         localStorage.removeItem("token");
         navigate("/login");
       }
+    }
+    console.log(role);
+    if (role === "admin") {
+      navigate("/login");
     }
     // console.log(token);
   },[])
