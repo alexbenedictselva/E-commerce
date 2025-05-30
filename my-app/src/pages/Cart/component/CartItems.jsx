@@ -9,7 +9,7 @@ const CartItem = () => {
   useEffect(() => {
     const FetchData = async () => {
       try {
-        const tokenID = localStorage.getItem("jwtToken");
+        const tokenID = localStorage.getItem("token");
         const getItems = await axios.get("http://localhost:5000/api/cart", {
           headers: {
             Authorization: `Bearer ${tokenID}`,

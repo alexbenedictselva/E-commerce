@@ -14,7 +14,7 @@ const SalesBox = ({ name, brand, cost, img, id }) => {
     e.stopPropagation();
 
     try {
-      const tokenID = localStorage.getItem("jwtToken");
+      const tokenID = localStorage.getItem("token");
       console.log(tokenID);
       const Res = await axios.post(
         "http://localhost:5000/api/addToCart",

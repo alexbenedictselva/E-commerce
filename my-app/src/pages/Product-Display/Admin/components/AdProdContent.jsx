@@ -36,7 +36,7 @@ const AdProdContent = () => {
   };
 
   const GiveToCart = async () => {
-    const token = localStorage.getItem("jwtToken");
+    const token = localStorage.getItem("token");
     try {
       const giveToCart = await axios.post(
         "http://localhost:5000/api/addToCart",
@@ -84,13 +84,13 @@ const AdProdContent = () => {
             <hr className="line" />
           </div>
         </div>
-            {del && (
-              <div className="popup-overlay">
-                <div className="popup-box">
-                          <DeletePop_up product={prod.product} SetDel={SetDel} del={del} />
-                </div>
-              </div>
-            )}
+        {del && (
+          <div className="popup-overlay">
+            <div className="popup-box">
+              <DeletePop_up product={prod.product} SetDel={SetDel} del={del} />
+            </div>
+          </div>
+        )}
         <div className="right-side">
           <div className="content">
             <div className="top">

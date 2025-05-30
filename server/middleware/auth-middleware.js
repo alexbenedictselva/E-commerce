@@ -9,6 +9,9 @@ const getFromToken = (req, res, next) => {
     });
   }
   const GetToken = GetTokenDetails.split(" ")[1];
+  const decoded = jwt.decode(GetToken);
+  console.log(new Date(decoded.exp * 1000)); // Check expiry time
+
   try {
     const decodedToken = jwt.verify(GetToken, "alexbenedictselva");
     if (!decodedToken) {
@@ -21,7 +24,7 @@ const getFromToken = (req, res, next) => {
     console.log(req.userInfo);
     next();
   } catch (e) {
-    console.log("Error in fetching token : ", e);
+    console.log("Error in fetching token middleware: ", e);
   }
 };
 const AdminVerification = (req, res, next) => {
@@ -34,7 +37,7 @@ const AdminVerification = (req, res, next) => {
     }
     next();
   } catch (e) {
-    console.log("Error in admin :", e);
+    console.log("Error in admin middleware:", e);
   }
 };
 

@@ -14,10 +14,10 @@ const CartBox = ({
   setProd,
   ProdId,
   setProduc,
-  flagToShow
+  flagToShow,
 }) => {
   const [quantityProd, setQuantity] = useState(quantity);
-  const tokenId = localStorage.getItem("jwtToken");
+  const tokenId = localStorage.getItem("token");
   const navigate = useNavigate();
   useEffect(() => {
     const changeQuanity = async () => {
@@ -52,7 +52,7 @@ const CartBox = ({
     e.stopPropagation();
     setProd(prod.filter((e) => e._id !== id));
     const delProduct = async (req, res) => {
-      const tokenId = localStorage.getItem("jwtToken");
+      const tokenId = localStorage.getItem("token");
       try {
         const PassID = await axios.put(
           "http://localhost:5000/api/deleteCart",
@@ -85,28 +85,30 @@ const CartBox = ({
   const getProductItem = (e) => {
     e.stopPropagation();
     navigate(`/product/${ProdId}`);
-  }
+  };
   return (
     <div className="CartBox ">
       {/* <div className="pro"> */}
-      {flagToShow === 'selected' && (<i class="fa fa-check tick" aria-hidden="true"></i>)}
-        <div onClick={AddCart}>
-          <img src={img} alt="no img" />
-          <div className="items">
-            <div class="des">
-              <span>{brand}</span>
-              <h5>{name}</h5>
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <h4>{cost}$</h4>
+      {flagToShow === "selected" && (
+        <i class="fa fa-check tick" aria-hidden="true"></i>
+      )}
+      <div onClick={AddCart}>
+        <img src={img} alt="no img" />
+        <div className="items">
+          <div class="des">
+            <span>{brand}</span>
+            <h5>{name}</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             </div>
-            <div className="cartQuantity">
-              {/* <p>
+            <h4>{cost}$</h4>
+          </div>
+          <div className="cartQuantity">
+            {/* <p>
                 <span className="alter" onClick={(e) => MinusClicked(e)}>
                   &#x2D;
                 </span>{" "}
@@ -115,13 +117,15 @@ const CartBox = ({
                   &#x2B;
                 </span>
               </p> */}
-            <div className="viewEle" onClick={(e) => getProductItem(e)}><button className="viewProd">View</button></div>
-              <div className="del" onClick={(e) => handleDelete(e, id)}>
-                <i class="fa fa-trash" aria-hidden="true"></i>
-              </div>
+            <div className="viewEle" onClick={(e) => getProductItem(e)}>
+              <button className="viewProd">View</button>
+            </div>
+            <div className="del" onClick={(e) => handleDelete(e, id)}>
+              <i class="fa fa-trash" aria-hidden="true"></i>
             </div>
           </div>
         </div>
+      </div>
       {/* </div> */}
     </div>
   );

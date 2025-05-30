@@ -47,7 +47,7 @@ const ProdContent = () => {
     findRelatedProd();
   }, [items]);
   const GiveToCart = async () => {
-    const token = localStorage.getItem("jwtToken");
+    const token = localStorage.getItem("token");
     try {
       const giveToCart = await axios.post(
         "http://localhost:5000/api/addToCart",
@@ -68,8 +68,8 @@ const ProdContent = () => {
     }
   };
   const getProductSimi = (id1) => {
-      navigate(`/product/${id1}`);
-      window.location.reload();
+    navigate(`/product/${id1}`);
+    window.location.reload();
   };
   return (
     <div id="MainProd">

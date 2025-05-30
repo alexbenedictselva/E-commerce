@@ -6,7 +6,17 @@ import axios from "axios";
 const ShopContent = () => {
   const [dispProd, setProd] = useState([]);
   const [filterProd, setFilter] = useState([]);
-  const [SearchProd, setSearch] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  // const [filterProd, setFilter] = useState([]);
+  // useEffect(() => {
+  const itemsPerPage = 8;
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filterProd.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filterProd.length / itemsPerPage);
+
+  // },[filterProd])
+
   const [SearchData, setData] = useState("");
   const options = [
     "Relevance",
@@ -27,7 +37,7 @@ const ShopContent = () => {
           const data = GetProducts.data.message.map((e) => {
             return e.product;
           });
-          setSearch(data);
+          setFilter(data);
         }
       } catch (e) {
         console.log("Error in displaing all products : ", e);
@@ -40,8 +50,8 @@ const ShopContent = () => {
     setData(e.target.value);
   };
   useEffect(() => {
-    console.log(SearchProd);
-  }, [SearchProd]);
+    console.log(filterProd);
+  }, [filterProd]);
 
   useEffect(() => {
     console.log(SearchData.length);
@@ -49,7 +59,7 @@ const ShopContent = () => {
     const data = dispProd.filter((e) => {
       return e.product.toLowerCase().includes(vari);
     });
-    setSearch(data);
+    setFilter(data);
   }, [SearchData]);
 
   const FilterProd = useCallback(
@@ -88,7 +98,7 @@ const ShopContent = () => {
         </div>
         <div className="items pro-container">
           {SearchData !== "" &&
-            SearchProd.map((e) => {
+            filterProd.map((e) => {
               return (
                 <div className="pro" key={e._id}>
                   <SalesBox
@@ -104,7 +114,7 @@ const ShopContent = () => {
             })}
           {SearchData === "" &&
             filterProd.length > 0 &&
-            filterProd.map((e) => {
+            currentItems.map((e) => {
               return (
                 <div className="pro" key={e._id}>
                   <SalesBox
@@ -118,6 +128,33 @@ const ShopContent = () => {
                 </div>
               );
             })}
+          <div className="pagination">
+            <button
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+            >
+              Prev
+            </button>
+
+            {[...Array(totalPages)].map((_, i) => (
+              <button
+                key={i + 1}
+                onClick={() => setCurrentPage(i + 1)}
+                className={currentPage === i + 1 ? "active-page" : ""}
+              >
+                {i + 1}
+              </button>
+            ))}
+
+            <button
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div>
         </div>
       </div>
     </div>

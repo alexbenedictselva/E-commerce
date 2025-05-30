@@ -79,7 +79,7 @@ const UserLogin = async (req, res) => {
       token: accesstoken,
       role: Findemail.role
     });
-    console.log("token", accesstoken);
+    console.log("TOKEN :", accesstoken);
   } catch (e) {
     console.log("Error in logging in : ", e);
   }

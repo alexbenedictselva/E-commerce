@@ -3,6 +3,7 @@ import axios from "axios";
 import "./options.css";
 const Options = ({ filter }) => {
   const [Show, setShow] = useState(new Array(5).fill(false));
+
   // const [showProd, setProd] = useState([]);
   const [checkList, setCheck] = useState([]);
   const sizes = [
@@ -120,6 +121,7 @@ const Options = ({ filter }) => {
                       type="checkbox"
                       value={size}
                       onClick={() => ItemGotClicked(size)}
+                      checked={checkList.includes(size)}
                     />{" "}
                     &nbsp;&nbsp;{size}
                   </label>
@@ -159,6 +161,7 @@ const Options = ({ filter }) => {
                       type="checkbox"
                       value={size}
                       onClick={() => ItemGotClicked(size)}
+                      checked={checkList.includes(size)}
                     />{" "}
                     &nbsp;&nbsp;{size}
                   </label>
@@ -198,6 +201,7 @@ const Options = ({ filter }) => {
                       type="checkbox"
                       value={size}
                       onClick={() => ItemGotClicked(size)}
+                      checked={checkList.includes(size)}
                     />{" "}
                     &nbsp;&nbsp;{size}
                   </label>
@@ -206,6 +210,7 @@ const Options = ({ filter }) => {
             </ul>
           </div>
         )}
+        
       </div>
     </div>
   );
