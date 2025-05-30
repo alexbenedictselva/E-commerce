@@ -2,10 +2,12 @@ import React, { useCallback, useEffect, useState } from "react";
 import "../cart.css";
 import SalesBox from "./Cart-box";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const CartItem = () => {
   const [prod, setProd] = useState([]);
   const [cartProd, setCart] = useState([]);
   const [totAmt, setAmt] = useState();
+  const navigate = useNavigate();
   useEffect(() => {
     const FetchData = async () => {
       try {
@@ -62,6 +64,9 @@ const CartItem = () => {
       return e.name === name 
     })
     return findProduct ? "selected" : "";
+  }
+  const PassValue = () => {
+    navigate("/checkout", { state: { cart: cartProd } });
   }
   return (
     <div>
@@ -150,7 +155,7 @@ const CartItem = () => {
             )}
             {cartProd.length > 0 && (
               <div className="buy-div">
-                <button className="buy-button">
+                <button className="buy-button" onClick={PassValue}>
                   <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                   Buy Product
                 </button>

@@ -70,3 +70,6 @@
 .cartDiv{
     margin-top: 130px;    
 }
+#product1 .buy-button{
+    cursor: pointer;
+}
