@@ -1,0 +1,89 @@
+/* @import url('https://fonts.googleapis.com/css?family=Spartan:wght@100;200;300;400;500; 600;700;800;900&display=swap'); */
+
+#CheckHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 80px;
+  background-color: #e3e6f3;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 15%;
+  right: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#Checknavbar {
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-right: 0px;
+  /* position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-right: 0px; */
+}
+/* #Checknavbar .step-line::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 20%); /* adjust if needed */
+  /* width: 80px; 
+  height: 2px;
+  background-color: black;
+  transform: translateY(-50%);
+}  */
+
+#Checknavbar .navEle i {
+  margin: 0;
+  margin-bottom: 2px;
+}
+#Checknavbar .navEle p {
+  margin: 0;
+}
+#Checknavbar .navEle .num {
+  border: 1px solid black;
+  border-radius: 30%;
+  padding: 5px;
+  font-size: 11px;
+}
+#Checknavbar .navEle .name {
+  font-size: 11px;
+}
+#Checknavbar .navEle .cen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#CheckHeader img {
+  cursor: pointer;
+  width: 4%;
+}
+
+#Checknavbar li {
+  list-style: none;
+  padding: 0 20px;
+  position: relative;
+}
+
+#Checknavbar li {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+#Checknavbar .link {
+  text-decoration: none;
+}
+
+#CheckHeader #mobile {
+  display: none;
+}
+#CheckHeader .navAdmin {
+  gap: 10px;
+}
