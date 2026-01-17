@@ -4,11 +4,13 @@ const app = express();
 const regis_router = require("./Routes/login-routes");
 const img_router = require("./Routes/image-routes");
 const Adm_router = require("./Routes/Admin-route");
+const reviewRouter = require("./Routes/review-route");
+const ordersRouter = require("./Routes/orders-route");
 const cors = require("cors");
 
 mongoose
   .connect(
-    "mongodb+srv://Alex:alexbenedictselva1772006@cluster0.n2pci.mongodb.net/"
+    "mongodb+srv://Alex:alexbenedictselva1772006@cluster0.n2pci.mongodb.net/",
   )
   .then(console.log("Successfully connected to the dataBase"))
   .catch((e) => console.log("Error in connecting to the dataBase :", e));
@@ -18,6 +20,8 @@ app.use(cors());
 app.use("/api", regis_router);
 app.use("/api/admin", img_router);
 app.use("/api/admin", Adm_router);
+app.use("/api/review", reviewRouter);
+app.use("/api/orders", ordersRouter);
 
 const port = "5000";
 app.listen(port, () => {
