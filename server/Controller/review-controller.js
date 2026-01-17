@@ -1,5 +1,6 @@
 const reviewSchema = require("../Schema/review-schema");
 const productSchema = require("../Schema/product-schema");
+const userSchema = require("../Schema/user-schema");
 const mongoose = require("mongoose");
 
 const AddReview = async (req, res) => {
@@ -44,19 +45,28 @@ const AddReview = async (req, res) => {
 
 const getAllReviews = async (req, res) => {
   try {
-    const { productId } = req.body;
+    const { productId } = req.params;
     if (!mongoose.Types.ObjectId.isValid(productId)) {
       return res.json({ message: "object type defined is wrong" });
     }
-
+    const reviewWithName = [];
     const reviews = await reviewSchema.find({ productId: productId });
     if (!reviews) {
       return res.json({ message: "No reviews found" });
     }
-
+    for (const items of reviews) {
+      const reviewerName = await userSchema.findById(items.userId);
+      if (!reviewerName) {
+        return res.json({ message: "reviewed User not found" });
+      }
+      reviewWithName.push({
+        userName: reviewerName.username,
+        reviewData: items
+      });
+    }
     return res.json({
       message: "Reviews retrived",
-      reviews: reviews,
+      reviews: reviewWithName,
     });
   } catch (e) {
     console.log("Error in retriving the product's review", e);

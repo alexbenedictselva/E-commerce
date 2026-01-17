@@ -7,14 +7,36 @@ const ProdContent = () => {
   const [prod, setProd] = useState([]);
   const [similarProd, setSimi] = useState([]);
   const [items, setItems] = useState("");
+  const [reviews, setReviews] = useState([]);
+  const [showReviewForm, setShowReviewForm] = useState(false);
+  const [newReview, setNewReview] = useState("");
+  const [newRating, setNewRating] = useState(0);
   const { id } = useParams();
   const navigate = useNavigate();
+  useEffect(() => {
+    const getReviews = async () => {
+      try {
+        const getReviewsFromBack = await axios.get(
+          `http://localhost:5000/api/review/getAllReview/${id}`
+        );
+        console.log("revier",getReviewsFromBack.data);
+        
+        setReviews(getReviewsFromBack.data.reviews);
+      } catch (e) {
+        console.log("Error in displaying reviews", e);
+      }
+    };
+    getReviews();
+  }, []);
+  // useEffect(() => {
+  //   console.log("Reviews:", reviews);
+  // }, [reviews]);
   useEffect(() => {
     const getProdDetails = async () => {
       try {
         // console.log("ID : ", id);
         const ProdDetails = await axios.get(
-          `http://localhost:5000/api/getProd/${id}`
+          `http://localhost:5000/api/getProd/${id}`,
         );
         setProd(ProdDetails.data.message);
       } catch (e) {
@@ -58,7 +80,7 @@ const ProdContent = () => {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
       if (giveToCart.status === 200) {
         alert("added to cart");
@@ -70,6 +92,35 @@ const ProdContent = () => {
   const getProductSimi = (id1) => {
     navigate(`/product/${id1}`);
     window.location.reload();
+  };
+  
+  const submitReview = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      await axios.post(
+        "http://localhost:5000/api/review/addReview",
+        {
+          productId: id,
+          comment: newReview,
+          rating: newRating,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setNewReview("");
+      setNewRating(0);
+      setShowReviewForm(false);
+      // Refresh reviews
+      const getReviewsFromBack = await axios.get(
+        `http://localhost:5000/api/review/getAllReview/${id}`
+      );
+      setReviews(getReviewsFromBack.data.reviews);
+    } catch (e) {
+      console.log("Error submitting review:", e);
+    }
   };
   return (
     <div id="MainProd">
@@ -219,6 +270,55 @@ const ProdContent = () => {
             </div>
             <div className="rating"></div>
           </div>
+        </div>
+      </div>
+      <div className="reviews">
+        <div>
+          <h1>Customer Reviews</h1>
+        </div>
+        <div className="reviews-list">
+          {reviews.length > 0 ? (
+            reviews.map((review, index) => (
+              <div key={index} className="review-item">
+                <p><strong>{review.userName || 'Anonymous'}</strong></p>
+                <p>{review.reviewData.comment}</p>
+                <p>Rating: {review.reviewData.rating}/5</p>
+              </div>
+            ))
+          ) : (
+            <p>No reviews yet</p>
+          )}
+        </div>
+        <div className="review-form">
+          <h3>Post Review</h3>
+          <div className="review-input-group">
+            <label>Review:</label>
+            <input
+              type="text"
+              placeholder="Write your review..."
+              value={newReview}
+              onChange={(e) => setNewReview(e.target.value)}
+              className="review-input"
+            />
+          </div>
+          <div className="rating-input">
+            <label>Rating: </label>
+            <select 
+              value={newRating} 
+              onChange={(e) => setNewRating(Number(e.target.value))}
+              className="rating-select"
+            >
+              <option value={0}>Select Rating</option>
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option>
+            </select>
+          </div>
+          <button onClick={submitReview} className="submit-review-btn">
+            Submit Review
+          </button>
         </div>
       </div>
       <div className="simiProd">
