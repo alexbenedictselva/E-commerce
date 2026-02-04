@@ -19,13 +19,16 @@ const cors = require("cors");
 
 mongoose
   .connect(
-    "mongodb+srv://Alex:alexbenedictselva1772006@cluster0.n2pci.mongodb.net/",
+    process.env.MONGODB_URI,
   )
   .then(console.log("Successfully connected to the dataBase"))
   .catch((e) => console.log("Error in connecting to the dataBase :", e));
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: process.env.CLIENT_URL,
+  credentials: true
+}));
 const razorpay = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID,
   key_secret: process.env.RAZORPAY_KEY_SECRET,
@@ -39,7 +42,7 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/payment", paymentRoute);
 app.use("/api/user", userRoutes);
 
-const port = "5000";
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`server is running on the port ${port}`);
 });

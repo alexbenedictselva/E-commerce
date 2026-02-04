@@ -13,7 +13,7 @@ const getFromToken = (req, res, next) => {
   console.log(new Date(decoded.exp * 1000)); // Check expiry time
 
   try {
-    const decodedToken = jwt.verify(GetToken, "alexbenedictselva");
+    const decodedToken = jwt.verify(GetToken, process.env.JWT_SECRET);
     if (!decodedToken) {
       return res.json({
         success: false,

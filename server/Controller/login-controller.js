@@ -69,7 +69,7 @@ const UserLogin = async (req, res) => {
         role: Findemail.role,
         cart: Findemail.cart,
       },
-      "alexbenedictselva",
+      process.env.JWT_SECRET,
       { expiresIn: "60m" }
     );
     console.log(accesstoken);
