@@ -4,7 +4,7 @@ import SalesBox from "./Sales-box";
 const Sales2 = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/api/GetForSalesTwo")
+    fetch(`${process.env.REACT_APP_API_URL}/api/GetForSalesTwo`)
       .then((response) => response.json())
       .then((d) => {
         setProducts(d.data);

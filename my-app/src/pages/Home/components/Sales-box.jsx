@@ -17,7 +17,7 @@ const SalesBox = ({ name, brand, cost, img, id }) => {
       const tokenID = localStorage.getItem("token");
       console.log(tokenID);
       const Res = await axios.post(
-        "http://localhost:5000/api/addToCart",
+        `${process.env.REACT_APP_API_URL}/api/addToCart`,
         {
           id,
         },

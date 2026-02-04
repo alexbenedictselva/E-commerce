@@ -17,7 +17,7 @@ const ProdContent = () => {
     const getReviews = async () => {
       try {
         const getReviewsFromBack = await axios.get(
-          `http://localhost:5000/api/review/getAllReview/${id}`
+          `${process.env.REACT_APP_API_URL}/api/review/getAllReview/${id}`
         );
         console.log("revier",getReviewsFromBack.data);
         
@@ -36,7 +36,7 @@ const ProdContent = () => {
       try {
         // console.log("ID : ", id);
         const ProdDetails = await axios.get(
-          `http://localhost:5000/api/getProd/${id}`,
+          `${process.env.REACT_APP_API_URL}/api/getProd/${id}`,
         );
         setProd(ProdDetails.data.message);
       } catch (e) {
@@ -57,7 +57,7 @@ const ProdContent = () => {
   useEffect(() => {
     const findRelatedProd = async () => {
       try {
-        const getProduct = await axios.get("http://localhost:5000/api/GetTag", {
+        const getProduct = await axios.get(`${process.env.REACT_APP_API_URL}/api/GetTag`, {
           params: { tag: items },
         });
         setSimi(getProduct.data.message);
@@ -72,7 +72,7 @@ const ProdContent = () => {
     const token = localStorage.getItem("token");
     try {
       const giveToCart = await axios.post(
-        "http://localhost:5000/api/addToCart",
+        `${process.env.REACT_APP_API_URL}/api/addToCart`,
         {
           id,
         },
@@ -98,7 +98,7 @@ const ProdContent = () => {
     const token = localStorage.getItem("token");
     try {
       await axios.post(
-        "http://localhost:5000/api/review/addReview",
+        `${process.env.REACT_APP_API_URL}/api/review/addReview`,
         {
           productId: id,
           comment: newReview,
@@ -115,7 +115,7 @@ const ProdContent = () => {
       setShowReviewForm(false);
       // Refresh reviews
       const getReviewsFromBack = await axios.get(
-        `http://localhost:5000/api/review/getAllReview/${id}`
+        `${process.env.REACT_APP_API_URL}/api/review/getAllReview/${id}`
       );
       setReviews(getReviewsFromBack.data.reviews);
     } catch (e) {

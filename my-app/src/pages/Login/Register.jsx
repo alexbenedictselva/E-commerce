@@ -37,7 +37,7 @@ const Login = () => {
 
     const PassDataToBackend = async () => {
         try {
-            const Credencials = await axios.post("http://localhost:5000/api/register", {
+            const Credencials = await axios.post(`${process.env.REACT_APP_API_URL}/api/register`, {
                 username: name,
                 email: email,
                 password: password,

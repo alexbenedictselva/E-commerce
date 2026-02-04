@@ -30,7 +30,7 @@ const ShopContent = () => {
   useEffect(() => {
     const DisplayAllProducts = async () => {
       try {
-        const GetProducts = await axios.get("http://localhost:5000/api/getAll");
+        const GetProducts = await axios.get(`${process.env.REACT_APP_API_URL}/api/getAll`);
         if (GetProducts.status === 200) {
           setProd(GetProducts.data.message);
           setFilter(GetProducts.data.message);

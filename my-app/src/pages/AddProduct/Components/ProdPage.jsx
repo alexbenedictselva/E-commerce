@@ -19,7 +19,7 @@ const ProdPage = () => {
     formData.append("image", file);
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/admin/upload-image",
+        `${process.env.REACT_APP_API_URL}/api/admin/upload-image`,
         formData,
         {
           headers: {
@@ -89,7 +89,7 @@ const ProdPage = () => {
       console.log(data);
 
       const DetailsPass = await axios.post(
-        `http://localhost:5000/api/admin/UploadProd`,
+        `${process.env.REACT_APP_API_URL}/api/admin/UploadProd`,
         {
           product: prod.product,
           image: GetImage,

@@ -22,7 +22,7 @@ const CartBox = ({
   useEffect(() => {
     const changeQuanity = async () => {
       const itemsChange = axios.post(
-        "http://localhost:5000/api/alter",
+        `${process.env.REACT_APP_API_URL}/api/alter`,
         {
           quantityProd: quantityProd,
           prodId: id,
@@ -55,7 +55,7 @@ const CartBox = ({
       const tokenId = localStorage.getItem("token");
       try {
         const PassID = await axios.put(
-          "http://localhost:5000/api/deleteCart",
+          `${process.env.REACT_APP_API_URL}/api/deleteCart`,
           {
             prodId: id,
           },

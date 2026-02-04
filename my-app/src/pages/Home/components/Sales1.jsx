@@ -6,7 +6,7 @@ const Sales1 = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/GetForSalesOne")
+    fetch(`${process.env.REACT_APP_API_URL}/api/GetForSalesOne`)
       .then((response) => response.json())
       .then((data) => {
         setProducts(data.data || []);

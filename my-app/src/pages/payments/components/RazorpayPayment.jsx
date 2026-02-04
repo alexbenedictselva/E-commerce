@@ -5,7 +5,7 @@ const RazorpayPayment = ({ amount, disabled, userInfo }) => {
     try {
       // 1️⃣ Call backend to create order
       const response = await fetch(
-        "http://localhost:5000/api/payment/create-order",
+        `${process.env.REACT_APP_API_URL}/api/payment/create-order`,
         {
           method: "POST",
           headers: {
@@ -39,7 +39,7 @@ const RazorpayPayment = ({ amount, disabled, userInfo }) => {
 
           // 3️⃣ Verify payment on backend
           const verifyResponse = await fetch(
-            "http://localhost:5000/api/payment/verify-payment",
+            `${process.env.REACT_APP_API_URL}/api/payment/verify-payment`,
             {
               method: "POST",
               headers: {

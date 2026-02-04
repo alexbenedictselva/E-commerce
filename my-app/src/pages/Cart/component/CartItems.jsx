@@ -12,7 +12,7 @@ const CartItem = () => {
     const FetchData = async () => {
       try {
         const tokenID = localStorage.getItem("token");
-        const getItems = await axios.get("http://localhost:5000/api/cart", {
+        const getItems = await axios.get(`${process.env.REACT_APP_API_URL}/api/cart`, {
           headers: {
             Authorization: `Bearer ${tokenID}`,
           },

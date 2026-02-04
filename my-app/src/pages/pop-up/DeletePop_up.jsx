@@ -9,7 +9,7 @@ const DeletePop_up = ({ product, deleteProduct ,SetDel,del}) => {
     const navigate = useNavigate();
     const confirmDelete = async () => {
         try {
-            const DelProd = await axios.delete(`http://localhost:5000/api/admin/deleteProd/${id}`)
+            const DelProd = await axios.delete(`${process.env.REACT_APP_API_URL}/api/admin/deleteProd/${id}`)
 
             if (DelProd) {
                 navigate(-2);

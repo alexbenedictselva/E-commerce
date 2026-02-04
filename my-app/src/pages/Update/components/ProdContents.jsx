@@ -20,7 +20,7 @@ const ProdContents = () => {
     formData.append("image", file);
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/admin/upload-image",
+        `${process.env.REACT_APP_API_URL}/api/admin/upload-image`,
         formData,
         {
           headers: {
@@ -55,7 +55,7 @@ const ProdContents = () => {
     const getProdDetails = async () => {
       try {
         const ProdDetails = await axios.get(
-          `http://localhost:5000/api/getProd/${id}`
+          `${process.env.REACT_APP_API_URL}/api/getProd/${id}`
         );
         setProd(ProdDetails.data.message);
       } catch (e) {
@@ -88,7 +88,7 @@ const ProdContents = () => {
         }
       }
       const DetailsPass = await axios.post(
-        `http://localhost:5000/api/admin/updateProd/${id}`,
+        `${process.env.REACT_APP_API_URL}/api/admin/updateProd/${id}`,
         {
           product: prod.product,
           image: imageUrlnew,

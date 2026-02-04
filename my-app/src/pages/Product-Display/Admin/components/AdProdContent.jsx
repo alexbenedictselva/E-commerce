@@ -14,7 +14,7 @@ const AdProdContent = () => {
       try {
         // console.log("ID : ", id);
         const ProdDetails = await axios.get(
-          `http://localhost:5000/api/getProd/${id}`
+          `${process.env.REACT_APP_API_URL}/api/getProd/${id}`
         );
         setProd(ProdDetails.data.message);
       } catch (e) {
@@ -39,7 +39,7 @@ const AdProdContent = () => {
     const token = localStorage.getItem("token");
     try {
       const giveToCart = await axios.post(
-        "http://localhost:5000/api/addToCart",
+        `${process.env.REACT_APP_API_URL}/api/addToCart`,
         {
           id,
         },

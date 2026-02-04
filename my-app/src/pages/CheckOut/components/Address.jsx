@@ -24,7 +24,7 @@ const Address = ({address,setAddress}) => {
     const token = localStorage.getItem("token");
     try {
       await axios.post(
-        "http://localhost:5000/api/user/addAddress",
+        `${process.env.REACT_APP_API_URL}/api/user/addAddress`,
         formData,
         {
           headers: {

@@ -12,7 +12,7 @@ const AdminKPI = () => {
   useEffect(() => {
     const fetchKPIs = async () => {
       const res = await axios.get(
-        "http://localhost:5000/api/admin/kpis",
+        `${process.env.REACT_APP_API_URL}/api/admin/kpis`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
