@@ -15,6 +15,41 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  addresses: [
+    {
+      name: {
+        type: String,
+        required: true,
+      },
+      phoneNumber: {
+        type: String,
+        required: true,
+      },
+      houseNo: {
+        type: String,
+        required: true,
+      },
+      roadName: {
+        type: String,
+        required: true,
+      },
+      pincode: {
+        type: String,
+        required: true,
+      },
+      city: {
+        type: String,
+        required: true,
+      },
+      state: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
+  phoneNumber: {
+    type: String,
+  },
   role: {
     type: String,
     enum: ["user", "admin"],

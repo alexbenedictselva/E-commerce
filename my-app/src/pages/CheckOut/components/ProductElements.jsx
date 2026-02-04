@@ -2,15 +2,22 @@ import React, { useEffect, useState } from "react";
 import "./ProductElements.css";
 import Address from "./Address";
 import { useLocation } from "react-router-dom";
+import axios from "axios";
+import RazorpayPayment from "../../payments/components/RazorpayPayment";
+
 const ProductElements = () => {
   const [address, setAddress] = useState(false);
   const [cart, setCart] = useState([]);
   const [tot, setTot] = useState();
+  const [userAddresses, setUserAddresses] = useState([]);
+  const [selectedAddress, setSelectedAddress] = useState(null);
   const location = useLocation();
+  
   useEffect(() => {
     const items = location.state;
     setCart(items.cart);
   }, []);
+  
   useEffect(() => {
     if (cart.length > 0) {
       const totalPrice = cart.reduce((acc, item) => {
@@ -19,6 +26,26 @@ const ProductElements = () => {
       setTot(totalPrice);
     }
   }, [cart]);
+
+  useEffect(() => {
+    const fetchAddresses = async () => {
+      const token = localStorage.getItem("token");
+      try {
+        const response = await axios.get(
+          "http://localhost:5000/api/user/addresses",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setUserAddresses(response.data.addresses);
+      } catch (e) {
+        console.log("Error fetching addresses:", e);
+      }
+    };
+    fetchAddresses();
+  }, []);
   return (
     <div className="ProdustElements">
       <div id="productElement" className={address === true ? "opacity" : ""}>
@@ -68,9 +95,34 @@ const ProductElements = () => {
                 <p className="rateF">Final Price</p>
                 <p className="rate">{tot}$</p>
               </div>
-              <button className="button" onClick={() => setAddress(!address)}>
-                Add Delivary Address
-              </button>
+              
+              {userAddresses.length > 0 && (
+                <div className="address-selection">
+                  <p className="address-title">Select Address:</p>
+                  <div className="address-list">
+                    {userAddresses.map((addr, index) => (
+                      <div 
+                        key={index} 
+                        className={`address-row ${selectedAddress === index ? 'selected' : ''}`}
+                        onClick={() => setSelectedAddress(selectedAddress === index ? null : index)}
+                      >
+                        <p><strong>{addr.name}</strong> - {addr.houseNo}, {addr.roadName}, {addr.city}, {addr.state} - {addr.pincode}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              <div className="button-row">
+                <button className="button" onClick={() => setAddress(!address)}>
+                  Add Delivary Address
+                </button>
+                <RazorpayPayment 
+                  amount={tot}
+                  disabled={selectedAddress === null}
+                  userInfo={selectedAddress !== null ? userAddresses[selectedAddress] : null}
+                />
+              </div>
             </div>
           </section>
         </div>

@@ -15,20 +15,7 @@ const CheckHeader = () => {
       <section id="CheckHeader">
         <img onClick={GotoHome} src={LOGO} alt="" />
         <div>
-          <ul id="Checknavbar" className="navAdmin">
-            <div className="navEle step-line">
-              <div className="cen">
-                <i class="fas fa-search"></i>
-              </div>
-              <p className="name">Review</p>
-            </div>
-            <div className="navEle step-line">
-              <div className="cen">
-                <i class="far fa-money-check"></i>
-              </div>
-              <p className="name">Payment</p>
-            </div>
-          </ul>
+          {/* Removed navbar elements for cleaner checkout experience */}
         </div>
       </section>
     </div>
