@@ -42,7 +42,7 @@ const Home = () => {
       navigate("/login");
     }
     // console.log(token);
-  },[])
+  },[navigate])
   return (
     <div>
       <Header />

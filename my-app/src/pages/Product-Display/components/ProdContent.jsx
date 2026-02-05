@@ -8,7 +8,7 @@ const ProdContent = () => {
   const [similarProd, setSimi] = useState([]);
   const [items, setItems] = useState("");
   const [reviews, setReviews] = useState([]);
-  const [showReviewForm, setShowReviewForm] = useState(false);
+  // const [showReviewForm] = useState(false);
   const [newReview, setNewReview] = useState("");
   const [newRating, setNewRating] = useState(0);
   const { id } = useParams();
@@ -27,7 +27,7 @@ const ProdContent = () => {
       }
     };
     getReviews();
-  }, []);
+  }, [id]);
   // useEffect(() => {
   //   console.log("Reviews:", reviews);
   // }, [reviews]);
@@ -44,7 +44,7 @@ const ProdContent = () => {
       }
     };
     getProdDetails();
-  }, []);
+  }, [id]);
   useEffect(() => {
     const containsTag = ["male", "female", "boy", "girl", "default"];
     const tagItems = prod?.tags || [];
@@ -112,7 +112,7 @@ const ProdContent = () => {
       );
       setNewReview("");
       setNewRating(0);
-      setShowReviewForm(false);
+      // setShowReviewForm(false);
       // Refresh reviews
       const getReviewsFromBack = await axios.get(
         `${process.env.REACT_APP_API_URL}/api/review/getAllReview/${id}`

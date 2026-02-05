@@ -35,7 +35,7 @@ const Prouduct = () => {
       navigate("/login");
     }
     // console.log(token);
-  },[])
+  },[navigate])
     useEffect(() => {
         window.scrollTo(0, 0);
     },[])

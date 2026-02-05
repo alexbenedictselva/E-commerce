@@ -16,7 +16,7 @@ const CartBox = ({
   setProduc,
   flagToShow,
 }) => {
-  const [quantityProd, setQuantity] = useState(quantity);
+  const [quantityProd] = useState(quantity);
   const tokenId = localStorage.getItem("token");
   const navigate = useNavigate();
   useEffect(() => {

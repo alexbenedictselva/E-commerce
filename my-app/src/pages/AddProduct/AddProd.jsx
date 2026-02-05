@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import ProdPage from "./Components/ProdPage";
 import "./addProd.css";
-import Admin_Header from "../Home/components/Admin/Admin_Header";
+import AdminHeader from "../Home/components/Admin/Admin_Header";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 const AddProd = () => {
@@ -31,7 +31,7 @@ const AddProd = () => {
 },[navigate])
   return (
     <div>
-      <Admin_Header />
+      <AdminHeader />
       <ProdPage />
     </div>
   );

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import Admin_Header from '../Home/components/Admin/Admin_Header'
-import { useNavigate, useParams } from 'react-router-dom'
+import AdminHeader from '../Home/components/Admin/Admin_Header'
+import { useNavigate } from 'react-router-dom'
 import ProdContents from './components/ProdContents';
 import { jwtDecode } from 'jwt-decode';
 const UpdateProd = () => {
@@ -26,10 +26,10 @@ const UpdateProd = () => {
         if (role !== "admin") {
             navigate('/NotAccessible');
         }
-  },[])
+  },[navigate])
   return (
     <div>
-          <Admin_Header />
+          <AdminHeader />
           <ProdContents />
     </div>
   )

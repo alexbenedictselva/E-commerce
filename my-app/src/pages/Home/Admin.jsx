@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import Admin_Header from './components/Admin/Admin_Header'
+import AdminHeader from './components/Admin/Admin_Header'
 import {jwtDecode} from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
 

@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./AdProdContent.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import DeletePop_up from "../../../pop-up/DeletePop_up";
+import DeletePopup from "../../../pop-up/DeletePop_up";
 const AdProdContent = () => {
   const [prod, setProd] = useState([]);
-  const [items, setItems] = useState("");
+  // const [items,setItems] = useState("");
   const { id } = useParams();
   const [del, SetDel] = useState(false);
   const navigate = useNavigate();
@@ -23,47 +23,23 @@ const AdProdContent = () => {
     };
     getProdDetails();
   }, [id]);
-  useEffect(() => {
-    const containsTag = ["male", "female", "boy", "girl", "default"];
-    const tagItems = prod?.tags || [];
-    const item = tagItems.find((e) => {
-      return containsTag.includes(e);
-    });
-    setItems(item);
-  }, [prod]);
+  // useEffect(() => {
+  //   const containsTag = ["male", "female", "boy", "girl", "default"];
+  //   const tagItems = prod?.tags || [];
+  //   const item = tagItems.find((e) => {
+  //     return containsTag.includes(e);
+  //   });
+  //   // setItems(item); 
+  // }, [prod]);
   const confirmDel = () => {
     SetDel(!del);
   };
 
-  const GiveToCart = async () => {
-    const token = localStorage.getItem("token");
-    try {
-      const giveToCart = await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/addToCart`,
-        {
-          id,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      if (giveToCart.status === 200) {
-        alert("added to cart");
-      }
-    } catch (e) {
-      console.log("Error in adding to cart (Product page) : ", e);
-    }
-  };
   const UpdateDetils = () => {
     navigate(`/admin/update/${id}`);
     window.location.reload();
   };
-  const getProductSimi = (id1) => {
-    navigate(`/product/${id1}`);
-    window.location.reload();
-  };
+
   return (
     <div id="MainProd">
       <div id="ProdContent">
@@ -87,7 +63,7 @@ const AdProdContent = () => {
         {del && (
           <div className="popup-overlay">
             <div className="popup-box">
-              <DeletePop_up product={prod.product} SetDel={SetDel} del={del} />
+              <DeletePopup product={prod.product} SetDel={SetDel} del={del} />
             </div>
           </div>
         )}
