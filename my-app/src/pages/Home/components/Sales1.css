@@ -1,9 +1,11 @@
 #product2{
     text-align: center; 
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-top: 50px;
+    margin: 50px 0 20px 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
 }
+
 img{
     width: 100%;
     border-radius: 20px;
@@ -11,21 +13,18 @@ img{
 
 .pro {
     width: 18%;
-    min-width: 250px;
-    /* max-height: 370px; */
-    padding: 10px 12px;
+    min-width: 200px;
+    max-width: 280px;
+    padding: 8px 10px;
     border: 1px solid #cce7d0;
     border-radius: 25px;
     cursor: pointer;
     box-shadow: 10px 20px 30px rgba(0,0,0,0.2);
-    margin: 15px 0px;
+    margin: 10px;
     transition: 0.2s ease;
     position: relative;
+    box-sizing: border-box;
 }
-/* #sales-box .pro1{
-    height: 10px;
-
-} */
 
 .pro:hover{
     box-shadow: 10px 20px 30px rgba(0,0,0,0.6);
@@ -33,84 +32,235 @@ img{
 
 .pro .des{
     text-align: start;
-    padding: 10px 0;
+    padding: 8px 0;
 }
 
 .pro .des span{
     color: #606063;
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .pro .des h5{
-    padding-top: 7px;
+    padding-top: 5px;
     color: #1a1a1a;
-    font-size: 14px;
+    font-size: 13px;
+    margin: 0;
 }
 
 .pro .des i{
-    font-size: 14px;
+    font-size: 12px;
     color: rgb(243,181,25);
 }
 
 .pro .des h4{
-    padding-top: 7px;
-    font-size: 15px;
+    padding-top: 5px;
+    font-size: 14px;
     font-weight: 700;
     color: #088178;
     position: relative;
+    margin: 0;
 }
 
 .pro .cart1{
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    border-radius:50px ;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 50px;
     background-color: #e8f6ea;
     font-weight: 500;
     color: #088178;
     border: 1px solid #cce7d0;
     position: absolute;
-    bottom: 20px;
-    right: 10px;
+    bottom: 15px;
+    right: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 14px;
 }
+
 .pro .cart1:hover{
     background-color: #c3ecc9;
 }
-/* .cart1{
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    border-radius:50px ;
-    background-color: #e8f6ea;
-    font-weight: 500;
-    color: #088178;
-    border: 1px solid #cce7d0;
-    position: absolute;
-    bottom: 20px;
-    right: 10px;
-} */
-/* .pro-container .cart1{
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    border-radius:50px ;
-    background-color: #e8f6ea;
-    font-weight: 500;
-    color: #088178;
-    border: 1px solid #cce7d0;
-    position: absolute;
-    bottom: 20px;
-    right: 10px;
-} */
 
 #product2 .pro-container{
     display: flex;
-    justify-content: space-around;
-    /* justify-content: space-between;  */
-    margin-left: 0px;
-    padding-top: 10px;
+    justify-content: center;
     flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+    .pro {
+        width: 22%;
+        min-width: 250px;
+        max-width: 300px;
+        padding: 12px 15px;
+        margin: 15px;
+    }
+    
+    .pro .des span { font-size: 12px; }
+    .pro .des h5 { font-size: 15px; }
+    .pro .des h4 { font-size: 16px; }
+    .pro .cart1 { width: 40px; height: 40px; }
+}
+
+/* Desktop */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .pro {
+        width: 20%;
+        min-width: 220px;
+        max-width: 280px;
+        padding: 10px 12px;
+    }
+    
+    .pro .des span { font-size: 11px; }
+    .pro .des h5 { font-size: 14px; }
+    .pro .des h4 { font-size: 15px; }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    #product2 {
+        margin: 30px 15px 15px 15px;
+    }
+    
+    .pro {
+        width: 45%;
+        min-width: 180px;
+        max-width: 220px;
+        padding: 8px 10px;
+        margin: 8px;
+    }
+    
+    .pro .des span { font-size: 10px; }
+    .pro .des h5 { font-size: 12px; }
+    .pro .des h4 { font-size: 13px; }
+    .pro .cart1 { width: 30px; height: 30px; font-size: 12px; }
+    
+    #product2 .pro-container {
+        gap: 10px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    #product2 {
+        margin: 20px 0 10px 0;
+        padding: 0;
+        width: 100%;
+    }
+    
+    .pro {
+        width: calc(50% - 4px);
+        min-width: 120px;
+        max-width: 160px;
+        padding: 5px 6px;
+        margin: 2px;
+        border-radius: 12px;
+        box-sizing: border-box;
+    }
+    
+    .pro .des { padding: 5px 0; }
+    .pro .des span { font-size: 8px; }
+    .pro .des h5 { font-size: 10px; padding-top: 2px; margin: 0; }
+    .pro .des h4 { font-size: 11px; padding-top: 2px; margin: 0; }
+    .pro .cart1 { 
+        width: 25px; 
+        height: 25px; 
+        font-size: 10px;
+        bottom: 8px;
+        right: 5px;
+    }
+    
+    #product2 .pro-container {
+        gap: 4px;
+        justify-content: center;
+        padding: 5px;
+        width: 100%;
+        margin: 0;
+    }
+}
+
+/* Small Mobile - 375px and below */
+@media (max-width: 375px) {
+    #product2 {
+        margin: 15px 0 8px 0;
+        padding: 0;
+        width: 100%;
+    }
+    
+    .pro {
+        width: calc(50% - 3px);
+        min-width: 100px;
+        max-width: 140px;
+        padding: 4px 5px;
+        margin: 1.5px;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+    
+    .pro .des { padding: 4px 0; }
+    .pro .des span { font-size: 7px; }
+    .pro .des h5 { font-size: 9px; padding-top: 2px; margin: 0; }
+    .pro .des h4 { font-size: 10px; padding-top: 2px; margin: 0; }
+    .pro .cart1 { 
+        width: 22px; 
+        height: 22px; 
+        font-size: 9px;
+        bottom: 6px;
+        right: 4px;
+    }
+    
+    #product2 .pro-container {
+        gap: 3px;
+        justify-content: center;
+        padding: 3px;
+        width: 100%;
+        margin: 0;
+    }
+}
+
+/* Extra Small Mobile - 320px and below */
+@media (max-width: 320px) {
+    #product2 {
+        margin: 12px 0 5px 0;
+        padding: 0;
+        width: 100%;
+    }
+    
+    .pro {
+        width: calc(50% - 2px);
+        min-width: 90px;
+        max-width: 120px;
+        padding: 3px 4px;
+        margin: 1px;
+        border-radius: 8px;
+        box-sizing: border-box;
+    }
+    
+    .pro .des { padding: 3px 0; }
+    .pro .des span { font-size: 6px; }
+    .pro .des h5 { font-size: 8px; padding-top: 1px; margin: 0; }
+    .pro .des h4 { font-size: 9px; padding-top: 1px; margin: 0; }
+    .pro .cart1 { 
+        width: 20px; 
+        height: 20px; 
+        font-size: 8px;
+        bottom: 5px;
+        right: 3px;
+    }
+    
+    #product2 .pro-container {
+        gap: 2px;
+        justify-content: center;
+        padding: 2px;
+        width: 100%;
+        margin: 0;
+    }
 }
