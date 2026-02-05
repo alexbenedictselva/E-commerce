@@ -5,6 +5,7 @@ import axios from "axios";
 import DeletePop_up from "../../../pop-up/DeletePop_up";
 const AdProdContent = () => {
   const [prod, setProd] = useState([]);
+  const [items, setItems] = useState("");
   const { id } = useParams();
   const [del, SetDel] = useState(false);
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const AdProdContent = () => {
       }
     };
     getProdDetails();
-  }, []);
+  }, [id]);
   useEffect(() => {
     const containsTag = ["male", "female", "boy", "girl", "default"];
     const tagItems = prod?.tags || [];

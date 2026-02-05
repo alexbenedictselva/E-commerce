@@ -33,7 +33,7 @@ const AdProd = () => {
     },[])
   return (
       <div>
-          <AdminHeader />
+          <Admin_Header />
           <AdProdContent />
     </div>
   )
