@@ -1,59 +1,59 @@
 .font-clr{
     color: white;
-    
 }
 
 .login {
-    /* position: relative; */
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url('https://res.cloudinary.com/dni5usgip/image/upload/v1737210350/zpihmkmv2r73c82en0ch.png');
     background-size: cover;
-    height: 100vh;
+    background-position: center;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color:blanchedalmond; */
+    padding: 20px;
+    box-sizing: border-box;
 }
+
 .box{
-    width: 25%;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    padding-left: 30px;
-    padding-right: 30px;
+    width: 100%;
+    max-width: 320px;
+    padding: 25px 20px;
     display: flex;
     flex-direction: column;
-    opacity: 1;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
-
+    box-sizing: border-box;
 }
-/* .box .header{
-    color: bisque;
-} */
+
 .box h2{
     margin-bottom: 20px;
     font-weight: 500;
+    text-align: center;
 }
+
 .box .input1{
     margin-bottom: 25px;
 }
+
 .box input{
     width: 100%;
-    /* height: 100%; */
     background-color: rgb(49, 47, 47);
     border: none;
     height: 40px;   
     color: white;
-    font-size:16px ;
-    padding-left: 7px;
+    font-size: 16px;
+    padding: 0 10px;
     border-radius: 4px;
+    box-sizing: border-box;
 }
+
 .box input[type="checkbox"]{
-    
-    /* height: auto; */
     width: 13px;
+    height: auto;
     margin-right: 4px;
 }
+
 .box button {
     cursor: pointer;
     margin-top: 35px;
@@ -62,67 +62,184 @@
     background-color: rgb(233, 59, 16);
     color: white;
     border: none;
- 
+    font-size: 16px;
+    transition: background-color 0.3s;
 }
-.box button .link{
-    text-decoration: none;
-    color: inherit;
+
+.box button:hover {
+    background-color: rgb(200, 50, 14);
 }
+
 .box .remember{
     margin-top: 7px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
 }
+
 .box .remember .rem{
     display: flex;
+    align-items: center;
 }
+
 .box .remember p{
     cursor: pointer;
-}
-.box .remember .rem p{
-    margin-top: 12px;
-    margin-left: 2px;
-    
-}
-.box .remember .help{
+    margin: 0;
     font-size: 14px;
-    margin-top: 15px;
-
 }
-.help1{
-    /* font-size: 14px; */
 
+.box .remember .rem p{
+    margin-left: 5px;
 }
+
 .box .sign-up{
     color: rgb(156, 147, 147);
     margin-top: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
+
 .box .sign-up span{
     color: white;
     cursor: pointer;
+    text-decoration: underline;
 }
-    
+
 .signUp{
     margin-top: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .box1{
-    /* mar */
-    padding: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 30px;
 }
 
 .already{
     font-size: 15px;
 }
+
 .sign-col{
     font-size: 17px;
     color: rgb(227, 205, 205);
-    color: black;
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+    .box {
+        max-width: 350px;
+        padding: 35px 25px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .box {
+        max-width: 320px;
+        padding: 30px 22px;
+    }
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+    .login {
+        padding: 15px;
+    }
+    
+    .box {
+        max-width: 280px;
+        padding: 25px 18px;
+    }
+    
+    .box h2 {
+        font-size: 20px;
+    }
+    
+    .box input {
+        height: 42px;
+        font-size: 15px;
+    }
+    
+    .box button {
+        height: 42px;
+        font-size: 15px;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+    .login {
+        padding: 10px;
+        min-height: 100vh;
+    }
+    
+    .box {
+        max-width: 260px;
+        width: 90%;
+        padding: 20px 15px;
+        margin: 0;
+    }
+    
+    .box h2 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    
+    .box input {
+        height: 40px;
+        font-size: 14px;
+        padding: 0 12px;
+    }
+    
+    .box button {
+        height: 40px;
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    
+    .box .remember {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .box .remember p {
+        font-size: 12px;
+    }
+    
+    .box .sign-up {
+        margin-top: 20px;
+        font-size: 12px;
+    }
+    
+    .box .sign-up span {
+        font-size: 13px;
+    }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 320px) {
+    .box {
+        max-width: 240px;
+        width: 85%;
+        padding: 18px 12px;
+    }
+    
+    .box h2 {
+        font-size: 16px;
+    }
+    
+    .box input {
+        height: 38px;
+        font-size: 13px;
+    }
+    
+    .box button {
+        height: 38px;
+        font-size: 13px;
+    }
 }
