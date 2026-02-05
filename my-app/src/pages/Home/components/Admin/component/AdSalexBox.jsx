@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../Sales1.css";
 import { useNavigate } from "react-router-dom";
 // import PopUp from "../../pop-up/popUp";
