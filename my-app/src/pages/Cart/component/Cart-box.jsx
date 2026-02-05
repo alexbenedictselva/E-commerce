@@ -21,7 +21,7 @@ const CartBox = ({
   const navigate = useNavigate();
   useEffect(() => {
     const changeQuanity = async () => {
-      const itemsChange = axios.post(
+      await axios.post(
         `${process.env.REACT_APP_API_URL}/api/alter`,
         {
           quantityProd: quantityProd,
@@ -35,18 +35,9 @@ const CartBox = ({
       );
     };
     changeQuanity();
-  }, [quantityProd]);
-  const MinusClicked = (e) => {
-    e.stopPropagation();
-    if (quantityProd === 1) {
-      handleDelete(id);
-    }
-    quantityProd !== 0 ? setQuantity(quantityProd - 1) : setQuantity(0);
-  };
-  const PlusClicked = (e) => {
-    e.stopPropagation();
-    setQuantity(quantityProd + 1);
-  };
+  }, [quantityProd, id, tokenId]);
+
+
 
   const handleDelete = (e, id) => {
     e.stopPropagation();
@@ -54,7 +45,7 @@ const CartBox = ({
     const delProduct = async (req, res) => {
       const tokenId = localStorage.getItem("token");
       try {
-        const PassID = await axios.put(
+        await axios.put(
           `${process.env.REACT_APP_API_URL}/api/deleteCart`,
           {
             prodId: id,

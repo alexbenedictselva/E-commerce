@@ -3,7 +3,6 @@ import './CheckOut.css';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import ProductElements from './components/ProductElements';
-import Address from './components/Address';
 import CheckHeader from './components/CheckHeader';
 const CheckOut = () => {
     const navigate = useNavigate();
@@ -33,7 +32,7 @@ const CheckOut = () => {
     if (role === "admin") {
       navigate("/login");
     }
-  },[])
+  },[navigate])
   return (
       <div id='CheckOut'>
           <CheckHeader />

@@ -3,7 +3,6 @@ import React from 'react'
 import '../Header.css';
 import LOGO from '../../../image/logo.dr.png'
 import { Link,useNavigate } from 'react-router-dom';
-import Shop from '../../../shop/shop';
 
 const Admin_Header = () => {
   const navigate = useNavigate();

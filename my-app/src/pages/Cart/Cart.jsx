@@ -36,7 +36,7 @@ const Cart = () => {
       navigate("/login");
     }
     // console.log(token);
-  },[])
+  },[navigate])
   return (
     <div>
       <Header />

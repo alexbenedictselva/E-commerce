@@ -28,7 +28,7 @@ const Admin = () => {
           }
         }
         // console.log(token);
-      },[])
+    }, [navigate])
     // useEffect(() => {
     //     const token = localStorage.getItem("token");
     //     const role = localStorage.getItem("role");
@@ -41,7 +41,7 @@ const Admin = () => {
     // },[])
   return (
       <div>
-          <Admin_Header />
+          <AdminHeader />
     </div>
   )
 }

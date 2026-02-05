@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import PopUp from "../../pop-up/popUp";
 import "./ProdPage.css";
@@ -121,6 +121,7 @@ const ProdPage = () => {
                 previewImage ||
                 "https://res.cloudinary.com/dni5usgip/image/upload/v1748240856/6d2edb13-3168-4be7-abb2-2d53a0d35809.png"
               }
+              alt="Product"
             />
             <i class="icon fas fa-pen" onClick={handleIconClick}></i>{" "}
             <div></div>

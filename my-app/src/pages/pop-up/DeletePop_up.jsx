@@ -4,7 +4,6 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import './delete.css';
 const DeletePop_up = ({ product, deleteProduct ,SetDel,del}) => {
-  const [showConfirm, setShowConfirm] = useState(false);
     const { id } = useParams();
     const navigate = useNavigate();
     const confirmDelete = async () => {
@@ -18,9 +17,7 @@ const DeletePop_up = ({ product, deleteProduct ,SetDel,del}) => {
             console.log("Error in deleting product : ",e);
         }
     }
-  const handleDeleteClick = () => {
-    // setShowConfirm(true);
-  };
+
 
   const cancelDelete = () => {
       SetDel(!del);

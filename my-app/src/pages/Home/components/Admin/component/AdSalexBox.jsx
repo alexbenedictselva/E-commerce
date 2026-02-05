@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import "../../Sales1.css";
 import { useNavigate } from "react-router-dom";
 // import PopUp from "../../pop-up/popUp";
 
 const AdSales = ({ name, brand, cost, img, id }) => {
-  const [popUp, setPop] = useState("");
-
-  const [errorTimestamp, setErrorTimestamp] = useState(null);
   const navigate = useNavigate();
   //   const GiveIdToBackEnd = async (e, id) => {
   //     // e.

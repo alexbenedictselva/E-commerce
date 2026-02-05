@@ -2,7 +2,7 @@ import React from "react";
 
 import "./CheckHeader.css";
 import LOGO from "../../image/logo.dr.png";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import Shop from '../../../shop/shop';
 
 const CheckHeader = () => {

@@ -63,7 +63,7 @@ const ProdContents = () => {
       }
     };
     getProdDetails();
-  }, []);
+  }, [id]);
   useEffect(() => {
     console.log(prod.image);
   }, [prod]);
@@ -109,7 +109,7 @@ const ProdContents = () => {
       setLoading(false);
     }
   };
-  const ChangePhoto = () => {};
+
   return (
     <div id="MainProd">
       <div id="AProdContent">

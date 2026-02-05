@@ -4,7 +4,7 @@ import "../../../shop/ShopContent.css"
 // import SalesBox from "../../Home/components/Sales-box";
 import axios from "axios";
 import Options from "../../../shop/components/options";
-import SalesBox from "../Sales-box";
+
 import AdSales from "./component/AdSalexBox";
 const AdminShopContent = () => {
   const [dispProd, setProd] = useState([]);

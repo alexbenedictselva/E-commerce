@@ -28,7 +28,7 @@ const AddProd = () => {
       if (role !== "admin") {
           navigate('/NotAccessible');
       }
-},[])
+},[navigate])
   return (
     <div>
       <Admin_Header />

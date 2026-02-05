@@ -16,7 +16,7 @@ const ProductElements = () => {
   useEffect(() => {
     const items = location.state;
     setCart(items.cart);
-  }, []);
+  }, [location.state]);
   
   useEffect(() => {
     if (cart.length > 0) {

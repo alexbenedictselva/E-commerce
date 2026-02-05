@@ -13,7 +13,7 @@ const PopUp = ({ message ,flag}) => {
           }
       hasShownToast.current = true;
     }
-  }, [message]);
+  }, [message, flag]);
 
   return (
     <div>
