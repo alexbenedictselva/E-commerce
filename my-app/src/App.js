@@ -11,8 +11,8 @@ import UpdateProd from "./pages/Update/UpdateProd";
 import AddProd from "./pages/AddProduct/AddProd";
 import AccessDenied from "./pages/ErrorPages/AccessDenied";
 import CheckOut from "./pages/CheckOut/CheckOut";
-import AdminKPI from "./pages/AdminDashboard/AdminKPI.jsx";
 import Payment from "./pages/payments/Payment.jsx";
+import Main from "./pages/Home/components/Admin/Main.jsx";
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
         <Route path="/product/:id" element={<Prouduct />} />
         <Route path="/checkout" element={<CheckOut />} />
 
-        <Route path="/admin" element={<AdminKPI />} />
+        <Route path="/admin" element={<Main />} />
         <Route path="/admin/product/:id" element={<AdProd />} />
         <Route path="/admin/update/:id" element={<UpdateProd />} />
         <Route path="/admin/addProduct" element={<AddProd />} />
