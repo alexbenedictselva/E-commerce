@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import "./options.css";
 const Options = ({ filter }) => {
   const [Show, setShow] = useState(new Array(5).fill(false));

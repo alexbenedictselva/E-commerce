@@ -30,7 +30,9 @@ const ShopContent = () => {
   useEffect(() => {
     const DisplayAllProducts = async () => {
       try {
-        const GetProducts = await axios.get(`${process.env.REACT_APP_API_URL}/api/getAll`);
+        const GetProducts = await axios.get(
+          `${process.env.REACT_APP_API_URL}/api/getAll`,
+        );
         if (GetProducts.status === 200) {
           setProd(GetProducts.data.message);
           setFilter(GetProducts.data.message);
@@ -53,23 +55,28 @@ const ShopContent = () => {
     console.log(filterProd);
   }, [filterProd]);
 
+  // useEffect(() => {
+  //   console.log(SearchData.length);
+  //   const vari = SearchData.toLowerCase();
+  //   const data = dispProd.filter((e) => {
+  //     return e.product.toLowerCase().includes(vari);
+  //   });
+  //   setFilter(data);
+  // }, [SearchData]);
   useEffect(() => {
-    console.log(SearchData.length);
     const vari = SearchData.toLowerCase();
-    const data = dispProd.filter((e) => {
-      return e.product.toLowerCase().includes(vari);
-    });
+    const data = dispProd.filter((e) => e.product.toLowerCase().includes(vari));
     setFilter(data);
-  }, [SearchData]);
+  }, [SearchData, dispProd]);
 
   const FilterProd = useCallback(
     (arr = []) => {
       const filtered = dispProd.filter((product) =>
-        arr.every((tag) => product.tags.includes(tag))
+        arr.every((tag) => product.tags.includes(tag)),
       );
       setFilter(filtered);
     },
-    [dispProd]
+    [dispProd],
   );
   return (
     <div id="salesPage">

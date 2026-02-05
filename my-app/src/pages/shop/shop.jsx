@@ -1,8 +1,7 @@
-import React, { useState,useEffect } from "react";
+import { useEffect } from "react";
 import "./shop.css";
 import Header from "../Home/components/Header1";
 import ShopContent from "./ShopContent";
-import Options from "./components/options";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 const Shop = () => {
@@ -35,7 +34,7 @@ const Shop = () => {
       navigate("/login");
     }
     // console.log(token);
-  },[])
+  },[navigate])
   return (
     <div className="Shop">
       <Header />
