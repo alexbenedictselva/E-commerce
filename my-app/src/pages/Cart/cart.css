@@ -1,75 +1,209 @@
-#product1{
-    text-align: center; 
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-top: 50px;
+#product1 {
+  text-align: center;
+  margin: 50px 40px 40px 40px;
+  box-sizing: border-box;
+  width: calc(100% - 80px);
 }
 
-#product1 img{
-    width: 100%;
-    border-radius: 20px;
+#product1 img {
+  width: 100%;
+  border-radius: 20px;
 }
 
-
-#product1 .pro .des{
-    text-align: start;
-    padding: 10px 0;
+#product1 .pro .des {
+  text-align: start;
+  padding: 10px 0;
 }
 
-#product1 .pro .des span{
-    color: #606063;
-    font-size: 12px;
+#product1 .pro .des span {
+  color: #606063;
+  font-size: 12px;
 }
 
-#product1 .pro .des h5{
-    padding-top: 7px;
-    color: #1a1a1a;
-    font-size: 14px;
+#product1 .pro .des h5 {
+  padding-top: 7px;
+  color: #1a1a1a;
+  font-size: 14px;
 }
 
-#product1 .pro .des i{
-    font-size: 14px;
-    color: rgb(243,181,25);
+#product1 .pro .des i {
+  font-size: 14px;
+  color: rgb(243, 181, 25);
 }
 
-#product1 .pro .des h4{
-    padding-top: 7px;
-    font-size: 15px;
-    font-weight: 700;
-    color: #088178;
-    position: relative;
+#product1 .pro .des h4 {
+  padding-top: 7px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #088178;
+  position: relative;
 }
 
-#product1 .pro-container .cart1{
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    border-radius:50px ;
-    background-color: #e8f6ea;
-    font-weight: 500;
-    color: #088178;
-    border: 1px solid #cce7d0;
-    position: absolute;
-    bottom: 20px;
-    right: 10px;
+#product1 .pro-container .cart1 {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50px;
+  background-color: #e8f6ea;
+  font-weight: 500;
+  color: #088178;
+  border: 1px solid #cce7d0;
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
 }
 
-.pro-container{
-    display: flex;
-    justify-content: space-around;
-    justify-content: flex-start;
-    /* gap: 20px; */
-    
-    padding-top: 20px;
-    flex-wrap: wrap;
-    margin-left: 45px;
+.pro-container {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 20px;
+  flex-wrap: wrap;
+  margin-left: 45px;
+  gap: 20px;
+  box-sizing: border-box;
 }
-#product1{
+
+#product1 {
+  margin-top: 100px;
+}
+
+.cartDiv {
+  margin-top: 130px;
+}
+
+#product1 .buy-button {
+  cursor: pointer;
+}
+
+/* Large Desktop (1200px+) */
+@media (min-width: 1200px) {
+  #product1 {
+    margin: 50px 40px 40px 40px;
+    width: calc(100% - 80px);
+  }
+}
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+  #product1 {
+    margin: 40px 30px 30px 30px;
+    width: calc(100% - 60px);
+  }
+
+  .cartDiv {
+    margin-top: 110px;
+  }
+
+  .pro-container {
+    margin-left: 20px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  #product1 {
+    margin: 40px 20px 30px 20px;
+    margin-top: 90px;
+    width: calc(100% - 40px);
+  }
+
+  .cartDiv {
     margin-top: 100px;
+  }
+
+  .pro-container {
+    margin-left: 0;
+    justify-content: center;
+    padding: 0 10px;
+  }
 }
-.cartDiv{
-    margin-top: 130px;    
+
+/* Mobile Landscape (600px - 768px) */
+@media (max-width: 600px) {
+  #product1 {
+    margin: 30px 15px 25px 15px;
+    margin-top: 85px;
+    width: calc(100% - 30px);
+  }
+
+  .cartDiv {
+    margin-top: 85px;
+  }
+
+  .pro-container {
+    margin-left: 0;
+    gap: 8px;
+    padding: 0 5px;
+  }
 }
-#product1 .buy-button{
-    cursor: pointer;
+
+/* Mobile */
+@media (max-width: 480px) {
+  #product1 {
+    margin: 25px 10px 20px 10px;
+    margin-top: 80px;
+    width: calc(100% - 20px);
+  }
+
+  .cartDiv {
+    margin-top: 80px;
+  }
+
+  .pro-container {
+    margin-left: 0;
+    justify-content: center;
+    padding: 0 5px;
+    gap: 6px;
+  }
+
+  #product1 h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+}
+
+/* Small Mobile (375px - 480px) */
+@media (max-width: 375px) {
+  #product1 {
+    margin: 20px 8px 15px 8px;
+    margin-top: 75px;
+    width: calc(100% - 16px);
+  }
+
+  .cartDiv {
+    margin-top: 75px;
+  }
+
+  #product1 h2 {
+    font-size: 22px;
+  }
+
+  .pro-container {
+    gap: 5px;
+    padding: 0 4px;
+  }
+}
+
+/* Extra Small Mobile (320px) */
+@media (max-width: 320px) {
+  #product1 {
+    margin: 15px 5px 12px 5px;
+    margin-top: 65px;
+    width: calc(100% - 10px);
+  }
+
+  .cartDiv {
+    margin-top: 65px;
+  }
+
+  #product1 h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .pro-container {
+    gap: 3px;
+    padding: 0 2px;
+    margin-left: 0;
+  }
 }
