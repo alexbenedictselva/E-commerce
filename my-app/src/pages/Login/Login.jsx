@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.css";
 // import logo from "../../../assets/logo.png";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -10,6 +10,9 @@ const Login = () => {
   const [signState, setSignState] = useState("Sign In");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const ADMIN_EMAIL = "admin123@gmail.com";
+  const ADMIN_PASSWORD = "admin123";
 
   const ChangeState = () => {
     signState === "Sign In" ? setSignState("Sign Up") : setSignState("Sign In");
@@ -17,6 +20,14 @@ const Login = () => {
       navigate("/register");
     }
   };
+
+  useEffect(() => {
+    if (location.pathname && location.pathname.includes("register")) {
+      setSignState("Sign Up");
+    } else {
+      setSignState("Sign In");
+    }
+  }, [location.pathname]);
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   const handleSubmit = (e) => {
@@ -38,7 +49,7 @@ const Login = () => {
         {
           email: email,
           password: password,
-        }
+        },
       );
 
       if (passToBackEnd.status === 200) {
@@ -46,7 +57,7 @@ const Login = () => {
         const role = passToBackEnd.data.role;
         localStorage.setItem("token", tokenId);
         localStorage.setItem("role", role);
-        
+
         if (role === "admin") {
           navigate("/admin");
         } else {
@@ -65,44 +76,62 @@ const Login = () => {
     <div id="Login">
       <div className="login">
         <div className="box">
-          <h2 className="font-clr">{signState}</h2>
+          <div className="toggle-group">
+            <h2 className="font-clr toggle-heading">
+              <span
+                className={
+                  "toggle " + (signState === "Sign In" ? "toggle-active" : "")
+                }
+                onClick={() => {
+                  setSignState("Sign In");
+                  navigate("/login");
+                }}
+              >
+                Sign In
+              </span>
+              <span
+                className={
+                  "toggle " + (signState === "Sign Up" ? "toggle-active" : "")
+                }
+                onClick={() => {
+                  setSignState("Sign Up");
+                  navigate("/register");
+                }}
+              >
+                Sign Up
+              </span>
+            </h2>
+          </div>
 
           <input
             placeholder="   Email"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="input1"
           ></input>
           <input
             placeholder="   Password"
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           ></input>
           <button className="font-clr" onClick={handleSubmit} type="submit">
             Sign In
           </button>
-          <div className="remember">
-            <div className="rem">
-              <input type="checkbox"></input>
-              <p className="font-clr">Remember me</p>
-            </div>
-            <p className="font-clr help">Need Help ?</p>
-          </div>
-          <div className="sign-up font-clr">
-            {signState === "Sign In" && (
-              <p className="font-clr">
-                New to Abs?{" "}
-                <span className="sign-col" onClick={ChangeState}>
-                  Sign Up Now
-                </span>
-              </p>
-            )}
-            {signState === "Sign Up" && (
-              <p className="font-clr">
-                Already In Alx ?{" "}
-                <span className="sign-col" onClick={ChangeState}>
-                  Sign In Now
-                </span>
-              </p>
-            )}
+
+          <div className="admin-info">
+            <p className="admin-title">Admin Credentials</p>
+            <p className="admin-detail">Email: admin123@gmail.com</p>
+            <p className="admin-detail">Password: admin123</p>
+            <button
+              className="fill-admin-btn"
+              onClick={(e) => {
+                e.preventDefault();
+                setEmail(ADMIN_EMAIL);
+                setPassword(ADMIN_PASSWORD);
+              }}
+            >
+              Fill Admin
+            </button>
           </div>
         </div>
       </div>

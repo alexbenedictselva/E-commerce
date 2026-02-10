@@ -1,245 +1,325 @@
-.font-clr{
-    color: white;
+.font-clr {
+  color: white;
 }
 
 .login {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url('https://res.cloudinary.com/dni5usgip/image/upload/v1737210350/zpihmkmv2r73c82en0ch.png');
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    box-sizing: border-box;
+  background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("https://res.cloudinary.com/dni5usgip/image/upload/v1737210350/zpihmkmv2r73c82en0ch.png");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.box{
-    width: 100%;
-    max-width: 320px;
-    padding: 25px 20px;
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    box-sizing: border-box;
+.box {
+  width: 100%;
+  max-width: 320px;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-sizing: border-box;
 }
 
-.box h2{
-    margin-bottom: 20px;
-    font-weight: 500;
-    text-align: center;
+.box h2 {
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-align: center;
 }
 
-.box .input1{
-    margin-bottom: 25px;
+/* Toggle small inline Sign In / Sign Up */
+.toggle-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.toggle-heading {
+  margin: 0;
+}
+.toggle {
+  display: inline-block;
+  font-size: 14px;
+  color: #e6e6e6;
+  background: transparent;
+  padding: 6px 10px;
+  border-radius: 16px;
+  cursor: pointer;
+  margin: 0 6px;
+  transition: all 0.18s ease;
+}
+.toggle:hover {
+  transform: translateY(-1px);
+  color: #fff;
+}
+.toggle-active {
+  background: white;
+  color: #111;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  font-weight: 600;
 }
 
-.box input{
-    width: 100%;
-    background-color: rgb(49, 47, 47);
-    border: none;
-    height: 40px;   
-    color: white;
-    font-size: 16px;
-    padding: 0 10px;
-    border-radius: 4px;
-    box-sizing: border-box;
+.box .input1 {
+  margin-bottom: 25px;
 }
 
-.box input[type="checkbox"]{
-    width: 13px;
-    height: auto;
-    margin-right: 4px;
+.box input {
+  width: 100%;
+  background-color: rgb(49, 47, 47);
+  border: none;
+  height: 40px;
+  color: white;
+  font-size: 16px;
+  padding: 0 10px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.box input[type="checkbox"] {
+  width: 13px;
+  height: auto;
+  margin-right: 4px;
 }
 
 .box button {
-    cursor: pointer;
-    margin-top: 35px;
-    height: 40px;
-    border-radius: 5px;
-    background-color: rgb(233, 59, 16);
-    color: white;
-    border: none;
-    font-size: 16px;
-    transition: background-color 0.3s;
+  cursor: pointer;
+  margin-top: 35px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: rgb(233, 59, 16);
+  color: white;
+  border: none;
+  font-size: 16px;
+  transition: background-color 0.3s;
 }
 
 .box button:hover {
-    background-color: rgb(200, 50, 14);
+  background-color: rgb(200, 50, 14);
 }
 
-.box .remember{
-    margin-top: 7px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
+.admin-info {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  text-align: center;
 }
 
-.box .remember .rem{
-    display: flex;
-    align-items: center;
+.admin-title {
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  margin: 0 0 10px 0;
 }
 
-.box .remember p{
-    cursor: pointer;
-    margin: 0;
-    font-size: 14px;
+.admin-detail {
+  color: white;
+  font-size: 13px;
+  margin: 5px 0;
 }
 
-.box .remember .rem p{
-    margin-left: 5px;
+.fill-admin-btn {
+  cursor: pointer;
+  margin-top: 12px !important;
+  height: 36px !important;
+  border-radius: 5px;
+  background-color: rgb(233, 59, 16) !important;
+  color: white !important;
+  border: none;
+  font-size: 14px !important;
+  width: 100%;
+  transition: background-color 0.3s;
 }
 
-.box .sign-up{
-    color: rgb(156, 147, 147);
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+.fill-admin-btn:hover {
+  background-color: rgb(200, 50, 14) !important;
 }
 
-.box .sign-up span{
-    color: white;
-    cursor: pointer;
-    text-decoration: underline;
+.box .remember {
+  margin-top: 7px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.signUp{
-    margin-top: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.box .remember .rem {
+  display: flex;
+  align-items: center;
 }
 
-.box1{
-    padding: 30px;
+.box .remember p {
+  cursor: pointer;
+  margin: 0;
+  font-size: 14px;
 }
 
-.already{
-    font-size: 15px;
+.box .remember .rem p {
+  margin-left: 5px;
 }
 
-.sign-col{
-    font-size: 17px;
-    color: rgb(227, 205, 205);
+.box .sign-up {
+  color: rgb(156, 147, 147);
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.box .sign-up span {
+  color: white;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.signUp {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box1 {
+  padding: 30px;
+}
+
+.already {
+  font-size: 15px;
+}
+
+.sign-col {
+  font-size: 17px;
+  color: rgb(227, 205, 205);
 }
 
 /* Large Desktop */
 @media (min-width: 1200px) {
-    .box {
-        max-width: 350px;
-        padding: 35px 25px;
-    }
+  .box {
+    max-width: 350px;
+    padding: 35px 25px;
+  }
 }
 
 /* Desktop */
 @media (min-width: 992px) and (max-width: 1199px) {
-    .box {
-        max-width: 320px;
-        padding: 30px 22px;
-    }
+  .box {
+    max-width: 320px;
+    padding: 30px 22px;
+  }
 }
 
 /* Tablet Styles */
 @media (max-width: 768px) {
-    .login {
-        padding: 15px;
+  .login {
+    padding: 15px;
+  }
+
+  .box {
+    max-width: 280px;
+    padding: 25px 18px;
+  }
+
+  .box h2 {
+    font-size: 20px;
+  }
+
+  /* Responsive adjustments for toggles */
+  @media (max-width: 480px) {
+    .toggle {
+      font-size: 13px;
+      padding: 5px 8px;
     }
-    
-    .box {
-        max-width: 280px;
-        padding: 25px 18px;
-    }
-    
-    .box h2 {
-        font-size: 20px;
-    }
-    
-    .box input {
-        height: 42px;
-        font-size: 15px;
-    }
-    
-    .box button {
-        height: 42px;
-        font-size: 15px;
-    }
+  }
+
+  .box input {
+    height: 42px;
+    font-size: 15px;
+  }
+
+  .box button {
+    height: 42px;
+    font-size: 15px;
+  }
 }
 
 /* Mobile Styles */
 @media (max-width: 480px) {
-    .login {
-        padding: 10px;
-        min-height: 100vh;
-    }
-    
-    .box {
-        max-width: 260px;
-        width: 90%;
-        padding: 20px 15px;
-        margin: 0;
-    }
-    
-    .box h2 {
-        font-size: 18px;
-        margin-bottom: 20px;
-    }
-    
-    .box input {
-        height: 40px;
-        font-size: 14px;
-        padding: 0 12px;
-    }
-    
-    .box button {
-        height: 40px;
-        font-size: 14px;
-        margin-top: 20px;
-    }
-    
-    .box .remember {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-    
-    .box .remember p {
-        font-size: 12px;
-    }
-    
-    .box .sign-up {
-        margin-top: 20px;
-        font-size: 12px;
-    }
-    
-    .box .sign-up span {
-        font-size: 13px;
-    }
+  .login {
+    padding: 10px;
+    min-height: 100vh;
+  }
+
+  .box {
+    max-width: 260px;
+    width: 90%;
+    padding: 20px 15px;
+    margin: 0;
+  }
+
+  .box h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .box input {
+    height: 40px;
+    font-size: 14px;
+    padding: 0 12px;
+  }
+
+  .box button {
+    height: 40px;
+    font-size: 14px;
+    margin-top: 20px;
+  }
+
+  .box .remember {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .box .remember p {
+    font-size: 12px;
+  }
+
+  .box .sign-up {
+    margin-top: 20px;
+    font-size: 12px;
+  }
+
+  .box .sign-up span {
+    font-size: 13px;
+  }
 }
 
 /* Small Mobile Styles */
 @media (max-width: 320px) {
-    .box {
-        max-width: 240px;
-        width: 85%;
-        padding: 18px 12px;
-    }
-    
-    .box h2 {
-        font-size: 16px;
-    }
-    
-    .box input {
-        height: 38px;
-        font-size: 13px;
-    }
-    
-    .box button {
-        height: 38px;
-        font-size: 13px;
-    }
+  .box {
+    max-width: 240px;
+    width: 85%;
+    padding: 18px 12px;
+  }
+
+  .box h2 {
+    font-size: 16px;
+  }
+
+  .box input {
+    height: 38px;
+    font-size: 13px;
+  }
+
+  .box button {
+    height: 38px;
+    font-size: 13px;
+  }
 }

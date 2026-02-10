@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.css";
-import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useNavigate, useLocation } from "react-router-dom";
 import PopUp from "../pop-up/popUp";
 
 const Login = () => {
@@ -11,15 +11,21 @@ const Login = () => {
   const [signState, setSignState] = useState("Sign In");
   const [error1, setError] = useState("");
   const [errorTimestamp, setErrorTimestamp] = useState(null);
-  
+
   const navigate = useNavigate();
+  const location = useLocation();
 
   const ChangeState = () => {
-    signState === "Sign In" ? setSignState("Sign Up") : setSignState("Sign In");
-    if (signState === "Sign In") {
-      navigate("/login");
-    }
+    navigate("/login");
   };
+
+  useEffect(() => {
+    if (location.pathname && location.pathname.includes("register")) {
+      setSignState("Sign Up");
+    } else {
+      setSignState("Sign In");
+    }
+  }, [location.pathname]);
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   const handleSubmit = (e) => {
@@ -31,37 +37,63 @@ const Login = () => {
     }
     if (!valid) {
       alert("Error");
-      }
-      PassDataToBackend();
+    }
+    PassDataToBackend();
   };
 
-    const PassDataToBackend = async () => {
-        try {
-            const Credencials = await axios.post(`${process.env.REACT_APP_API_URL}/api/register`, {
-                username: name,
-                email: email,
-                password: password,
-                cart: []
-            })
-            if (Credencials.status === 200) {
-              navigate('/login');
-            } else {
-              
-            }
-          } catch (e) {
-          if (e.response && e.response.data && e.response.data.message) {
-            setError(e.response.data.message);
-            setErrorTimestamp(Date.now());
-
-          } 
-            console.log("Error in registering user : ",e);
-        }
-  }
+  const PassDataToBackend = async () => {
+    try {
+      const Credencials = await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/register`,
+        {
+          username: name,
+          email: email,
+          password: password,
+          cart: [],
+        },
+      );
+      if (Credencials.status === 200) {
+        navigate("/login");
+      } else {
+      }
+    } catch (e) {
+      if (e.response && e.response.data && e.response.data.message) {
+        setError(e.response.data.message);
+        setErrorTimestamp(Date.now());
+      }
+      console.log("Error in registering user : ", e);
+    }
+  };
   return (
     <div>
       <div className="login register">
         <div className="box box1">
-          <h2 className="signUp font-clr">Sign Up</h2>
+          <div className="toggle-group">
+            <h2 className="font-clr toggle-heading">
+              <span
+                className={
+                  "toggle " + (signState === "Sign In" ? "toggle-active" : "")
+                }
+                onClick={() => {
+                  setSignState("Sign In");
+                  navigate("/login");
+                }}
+              >
+                Sign In
+              </span>
+              <span
+                className={
+                  "toggle " + (signState === "Sign Up" ? "toggle-active" : "")
+                }
+                onClick={() => {
+                  setSignState("Sign Up");
+                  navigate("/register");
+                }}
+              >
+                Sign Up
+              </span>
+            </h2>
+          </div>
 
           <input
             placeholder="   Username"
@@ -80,23 +112,15 @@ const Login = () => {
           <button className="font-clr" onClick={handleSubmit} type="submit">
             Sign Up
           </button>
-          <div className="remember">
-            <div className="rem">
-              <input type="checkbox"></input>
-              <p className="font-clr" >Remember me</p>
-            </div>
-            <p className="font-clr help" >Need Help ?</p>
-          </div>  
-          <div className="sign-up">
-            <p className="font-clr already">
-               Already In Alx?{" "}
-              <span className="sign-col" onClick={ChangeState}>
-              &nbsp;&nbsp;Sign In Now
-              </span>
-            </p>
-          </div>
         </div>
-        {error1 && <PopUp message={error1} flag='0' key={`${error1}-${errorTimestamp}`} onClose={() => setError("")} /> }
+        {error1 && (
+          <PopUp
+            message={error1}
+            flag="0"
+            key={`${error1}-${errorTimestamp}`}
+            onClose={() => setError("")}
+          />
+        )}
       </div>
     </div>
   );
