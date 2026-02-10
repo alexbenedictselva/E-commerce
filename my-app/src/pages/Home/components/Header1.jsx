@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './Header.css';
-import LOGO from '../../image/logo.dr.png'
 import { Link,useNavigate } from 'react-router-dom';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +20,7 @@ const Header = () => {
   return (
     <div>
       <section id="header">
-        <img onClick={GotoHome} src={LOGO} alt='' />
+        <img onClick={GotoHome} src="/ALX.png" alt='' />
         
         {/* Desktop Navigation */}
         <div className="desktop-nav">

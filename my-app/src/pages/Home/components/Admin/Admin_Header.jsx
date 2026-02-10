@@ -1,7 +1,6 @@
 import React from 'react'
 
 import '../Header.css';
-import LOGO from '../../../image/logo.dr.png'
 import { Link,useNavigate } from 'react-router-dom';
 
 const Admin_Header = () => {
@@ -12,7 +11,7 @@ const Admin_Header = () => {
   return (
     <div>
       <section id="header">
-        <img onClick={GotoHome} src={LOGO} alt='' />
+        <img onClick={GotoHome} src="../ALX.png" alt='' />
         <div >
             <ul id="navbar" className="navAdmin">
                 <Link to='/admin' className='link'><li>Home</li></Link>
