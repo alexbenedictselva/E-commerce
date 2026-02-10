@@ -15,10 +15,6 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const ChangeState = () => {
-    navigate("/login");
-  };
-
   useEffect(() => {
     if (location.pathname && location.pathname.includes("register")) {
       setSignState("Sign Up");

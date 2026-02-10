@@ -14,13 +14,6 @@ const Login = () => {
   const ADMIN_EMAIL = "admin123@gmail.com";
   const ADMIN_PASSWORD = "admin123";
 
-  const ChangeState = () => {
-    signState === "Sign In" ? setSignState("Sign Up") : setSignState("Sign In");
-    if (signState === "Sign In") {
-      navigate("/register");
-    }
-  };
-
   useEffect(() => {
     if (location.pathname && location.pathname.includes("register")) {
       setSignState("Sign Up");
