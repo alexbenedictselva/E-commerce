@@ -9,6 +9,14 @@ import AdSales from "./component/AdSalexBox";
 const AdminShopContent = () => {
   const [dispProd, setProd] = useState([]);
   const [filterProd, setFilter] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const itemsPerPage = 6;
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filterProd.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filterProd.length / itemsPerPage);
+
   const options = [
     "Relevance",
     "New Arrivals",
@@ -62,9 +70,9 @@ const AdminShopContent = () => {
         </div>
         <div className="items pro-container">
           {filterProd.length > 0 &&
-            filterProd.map((e) => {
+            currentItems.map((e) => {
               return (
-                <div className="pro">
+                <div className="pro" key={e._id}>
                   <AdSales
                     key={e._id}
                     name={e.product}
@@ -76,6 +84,33 @@ const AdminShopContent = () => {
                 </div>
               );
             })}
+          <div className="pagination">
+            <button
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+            >
+              Prev
+            </button>
+
+            {[...Array(totalPages)].map((_, i) => (
+              <button
+                key={i + 1}
+                onClick={() => setCurrentPage(i + 1)}
+                className={currentPage === i + 1 ? "active-page" : ""}
+              >
+                {i + 1}
+              </button>
+            ))}
+
+            <button
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div>
         </div>
       </div>
     </div>

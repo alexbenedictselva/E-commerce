@@ -9,7 +9,7 @@ const ShopContent = () => {
   const [currentPage, setCurrentPage] = useState(1);
   // const [filterProd, setFilter] = useState([]);
   // useEffect(() => {
-  const itemsPerPage = 8;
+  const itemsPerPage = 6;
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filterProd.slice(indexOfFirstItem, indexOfLastItem);

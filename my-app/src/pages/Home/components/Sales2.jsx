@@ -18,7 +18,7 @@ const Sales2 = () => {
         <p>Brand New Summer Collections</p>
         <div class="pro-container">
           {products.length > 1 &&
-            products.map((e) => {
+            products.slice(0, 6).map((e) => {
               return (
                 <div className="pro">
                   {

@@ -22,7 +22,7 @@ const Sales1 = () => {
         <h2>Summer Sale</h2>
         <p>Bringing You the Elements of Style</p>
         <div class="pro-container">
-          {products.length > 1 && products.map((e) => {
+          {products.length > 1 && products.slice(0, 6).map((e) => {
             return <div className="pro">
               {
                 <SalesBox

@@ -125,7 +125,7 @@ const CartItem = () => {
                       </p>
                     </div>
                     <div>
-                      <p>Free Delivary</p>
+                      <p>Free Delivery</p>
                     </div>
                     <div className="cartQuantity1">
                       <p>
