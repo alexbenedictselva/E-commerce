@@ -29,9 +29,9 @@ const Header = () => {
                 <Link to='/' className='link'><li>Home</li></Link>
                 <Link to='/cart' className='link'><li>Cart</li></Link>
                 <Link to='/shop' className='link'><li>Shop</li></Link>
-                <Link to='/' className='link'><li>Blog</li></Link>
-                <Link to='/' className='link'><li>About</li></Link>
-                <Link to='/' className='link'><li>Contact</li></Link>
+                {/* <Link to='/' className='link'><li>Blog</li></Link> */}
+                {/* <Link to='/' className='link'><li>About</li></Link> */}
+                {/* <Link to='/' className='link'><li>Contact</li></Link> */}
             </ul>
         </div>
         
@@ -46,9 +46,9 @@ const Header = () => {
             <Link to='/' className='link' onClick={closeMenu}><li>Home</li></Link>
             <Link to='/cart' className='link' onClick={closeMenu}><li>Cart</li></Link>
             <Link to='/shop' className='link' onClick={closeMenu}><li>Shop</li></Link>
-            <Link to='/' className='link' onClick={closeMenu}><li>Blog</li></Link>
-            <Link to='/' className='link' onClick={closeMenu}><li>About</li></Link>
-            <Link to='/' className='link' onClick={closeMenu}><li>Contact</li></Link>
+            {/* <Link to='/' className='link' onClick={closeMenu}><li>Blog</li></Link> */}
+            {/* <Link to='/' className='link' onClick={closeMenu}><li>About</li></Link> */}
+            {/* <Link to='/' className='link' onClick={closeMenu}><li>Contact</li></Link> */}
           </ul>
         </div>
     </section>
